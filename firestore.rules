@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Default Deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Global Helpers
+    function isSignedIn() { return request.auth != null; }
+    function isVerified() { return isSignedIn() && request.auth.token.email_verified == true; }
+    function isAdmin() { 
+      return isVerified() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == 'meneergroot@proton.me'
+      );
+    }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+
+    // --- PORTFOLIO COLLECTION ---
+    match /portfolio/{itemId} {
+      function isValidPortfolioItem(data) {
+        return data.keys().hasAll(['title', 'thumbnail', 'videoUrl', 'type', 'createdAt', 'createdBy']) &&
+               data.keys().size() == 6 &&
+               data.title is string && data.title.size() <= 200 &&
+               data.thumbnail is string && data.thumbnail.size() <= 1000 &&
+               data.videoUrl is string && data.videoUrl.size() <= 1000 &&
+               data.type in ['video', 'short'] &&
+               data.createdBy == request.auth.uid;
+      }
+
+      // Public can list and get
+      allow get: if true;
+      allow list: if true;
+
+      // Only Admin can create
+      allow create: if isAdmin() && 
+                      isValidPortfolioItem(incoming()) && 
+                      incoming().createdAt == request.time;
+
+      // Only Admin can update
+      allow update: if isAdmin() && 
+                      isValidPortfolioItem(incoming()) && 
+                      incoming().createdAt == existing().createdAt &&
+                      incoming().createdBy == existing().createdBy;
+
+      // Only Admin can delete
+      allow delete: if isAdmin();
+    }
+
+    // --- ADMINS COLLECTION ---
+    match /admins/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+      allow write: if false; // Managed via Cloud Console or bootstrapping logic above
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "PortfolioItem": {
+      "title": "Portfolio Item",
+      "description": "A video or short to be displayed in the portfolio",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the video" },
+        "thumbnail": { "type": "string", "description": "URL to the thumbnail image" },
+        "videoUrl": { "type": "string", "description": "The YouTube video URL or ID" },
+        "type": { "type": "string", "enum": ["video", "short"], "description": "The type of content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation" },
+        "createdBy": { "type": "string", "description": "User ID of the uploader" }
+      },
+      "required": ["title", "thumbnail", "videoUrl", "type", "createdAt", "createdBy"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "User with admin privileges",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "portfolio": {
+      "schema": "PortfolioItem",
+      "description": "Collection of all drone footage items"
+    },
+    "admins": {
+      "schema": "Admin",
+      "description": "Whitelist of admin users"
+    }
+  }
+}

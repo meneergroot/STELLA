@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-dot: "DotGothic16", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-nt-black: #000000;
+  --color-nt-dark: #0F0F11;
+  --color-nt-charcoal: #1E1E22;
+  --color-nt-gray: #7F7F8C;
+  --color-nt-light-gray: #E8E8EC;
+  --color-nt-bg: #F4F4F6;
+  --color-nt-white: #FFFFFF;
+  --color-nt-red: #FF003C;
+  --color-nt-red-glow: rgba(255, 0, 60, 0.4);
+}
+
+@layer base {
+  body {
+    @apply bg-nt-bg text-nt-black font-sans antialiased;
+  }
+}
+
+/* Nothing Tech signature Dot Grid patterns */
+.nt-dot-grid-dark {
+  background-image: radial-gradient(#26262b 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.nt-dot-grid-light {
+  background-image: radial-gradient(#d1d1db 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Technical Pixel/LED animation */
+@keyframes led-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 4px var(--color-nt-red), 0 0 12px var(--color-nt-red);
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0.4;
+    box-shadow: 0 0 2px var(--color-nt-red), 0 0 6px var(--color-nt-red);
+  }
+}
+
+.animate-led-blink {
+  animation: led-glow 2s infinite ease-in-out;
+}
+
+/* Custom raw technical elements */
+.nt-border-dashed {
+  background-image: linear-gradient(to right, #7f7f8c 50%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
