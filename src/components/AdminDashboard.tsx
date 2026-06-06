@@ -140,7 +140,7 @@ export default function AdminDashboard() {
       setIsAdmin(true);
       fetchItems();
     } else {
-      setLoginError('Ongeldige inloggegevens.');
+      setLoginError('Invalid credentials.');
     }
   };
 
@@ -156,12 +156,12 @@ export default function AdminDashboard() {
     setSuccess(false);
 
     if (!title || !videoUrl || !thumbnail) {
-      setFormError('Vul alle verplichte velden in.');
+      setFormError('Please fill in all required fields.');
       return;
     }
 
     if (!user) {
-      setFormError('U moet ingelogd zijn met Google om feeds naar de database te publiceren. Het demo-account heeft geen schrijfrechten.');
+      setFormError('You must be logged in with Google to publish feeds to the database. The demo account does not have write permissions.');
       return;
     }
     
@@ -184,9 +184,9 @@ export default function AdminDashboard() {
     } catch (err: any) {
       console.error('Submission error:', err);
       if (err?.message?.includes('permission-denied')) {
-        setFormError('Toegang geweigerd. Zorg ervoor dat u bent ingelogd met een geautoriseerd account.');
+        setFormError('Access denied. Please ensure you are logged in with an authorized account.');
       } else {
-        setFormError('Er is een fout opgetreden bij het opslaan. Probeer het later opnieuw.');
+        setFormError('An error occurred while saving. Please try again later.');
       }
     } finally {
       setSubmitting(false);
@@ -194,7 +194,7 @@ export default function AdminDashboard() {
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Weet u zeker dat u dit item wilt verwijderen?')) return;
+    if (!confirm('Are you sure you want to delete this item?')) return;
     setFormError(null);
     try {
       await deleteDoc(doc(db, 'portfolio', id));
@@ -202,9 +202,9 @@ export default function AdminDashboard() {
     } catch (err: any) {
       console.error('Delete error:', err);
       if (err?.message?.includes('permission-denied')) {
-        setFormError('Verwijderen mislukt: Toegang geweigerd.');
+        setFormError('Deletion failed: Access denied.');
       } else {
-        setFormError('Er is een fout opgetreden bij het verwijderen.');
+        setFormError('An error occurred during deletion.');
       }
     }
   };
@@ -231,11 +231,11 @@ export default function AdminDashboard() {
             </div>
           </div>
           
-          <h1 className="text-sm font-display font-bold text-nt-black text-center mb-6 tracking-wide">// BEHEERDERS BEVEILIGINGS PORTAAL</h1>
+          <h1 className="text-sm font-display font-bold text-nt-black text-center mb-6 tracking-wide">// ADMINISTRATOR SECURITY PORTAL</h1>
           
           <form onSubmit={handleFakeLogin} className="space-y-4 mb-6 text-left">
             <div>
-              <label className="block text-[10px] text-nt-gray mb-1.5 pl-1 tracking-wider">Gebruikersnaam</label>
+              <label className="block text-[10px] text-nt-gray mb-1.5 pl-1 tracking-wider">Username</label>
               <input 
                 type="text" 
                 value={username}
@@ -246,7 +246,7 @@ export default function AdminDashboard() {
               />
             </div>
             <div>
-              <label className="block text-[10px] text-nt-gray mb-1.5 pl-1 tracking-wider">Wachtwoord</label>
+              <label className="block text-[10px] text-nt-gray mb-1.5 pl-1 tracking-wider">Password</label>
               <input 
                 type="password" 
                 value={password}
@@ -262,13 +262,13 @@ export default function AdminDashboard() {
               className="w-full bg-nt-black text-nt-white py-3 rounded font-bold hover:bg-nt-charcoal transition-colors uppercase tracking-wider"
               id="admin-submit-btn"
             >
-              LOKALE_INLOG
+              LOCAL_LOGIN
             </button>
           </form>
 
           <div className="relative mb-6">
             <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-nt-light-gray"></div></div>
-            <div className="relative flex justify-center text-[9px] uppercase tracking-widest"><span className="bg-nt-white px-3 text-nt-gray">Of</span></div>
+            <div className="relative flex justify-center text-[9px] uppercase tracking-widest"><span className="bg-nt-white px-3 text-nt-gray font-mono">Or</span></div>
           </div>
           
           <button 
@@ -276,12 +276,12 @@ export default function AdminDashboard() {
             className="w-full bg-nt-white border border-nt-light-gray text-nt-black py-3 rounded hover:bg-nt-bg transition-colors flex items-center justify-center gap-2 tracking-wider"
             id="admin-google-btn"
           >
-            <Globe size={14} /> GOOGLE_INLOG
+            <Globe size={14} /> GOOGLE_LOGIN
           </button>
           
           <div className="mt-8 text-center border-t border-nt-light-gray pt-6">
             <Link to="/" className="text-nt-red text-[10px] hover:underline font-bold tracking-widest">
-              ← TERUG_NAAR_START
+              ← RETURN_TO_HOME
             </Link>
           </div>
         </motion.div>
@@ -298,20 +298,20 @@ export default function AdminDashboard() {
             <div className="w-7 h-7 bg-nt-black rounded flex items-center justify-center text-nt-white">
               <Drone size={14} />
             </div>
-            <span className="text-xs font-dot uppercase tracking-widest text-nt-black">STELLA_MONTIS_BEHEER</span>
+            <span className="text-xs font-dot uppercase tracking-widest text-nt-black">STELLA_MONTIS_ADMIN</span>
           </Link>
           <div className="hidden md:flex items-center gap-2 text-nt-gray font-mono text-[10px] uppercase">
             <Video size={12} className="text-nt-red animate-pulse" />
-            <span>Kanaal: {items.length} feeds actief</span>
+            <span>Channel: {items.length} active feeds</span>
           </div>
         </div>
         
         <div className="flex items-center gap-3 font-mono text-[10px] uppercase">
-          <span className="text-nt-gray hidden sm:block">Gebruiker: {user?.email || 'OFFLINE_BEHEERDER'}</span>
+          <span className="text-nt-gray hidden sm:block">User: {user?.email || 'OFFLINE_ADMIN'}</span>
           <button 
             onClick={handleLogout}
             className="p-1.5 border border-nt-light-gray rounded hover:bg-nt-bg text-nt-black transition-colors font-bold"
-            title="Uitloggen"
+            title="Log Out"
             id="admin-nav-logout"
           >
             <LogOut size={12} />
@@ -325,7 +325,7 @@ export default function AdminDashboard() {
         <div className="w-full lg:w-96 bg-nt-white border-r border-nt-light-gray p-6">
           <div className="sticky top-20 space-y-6">
             <div>
-              <span className="font-mono text-[9px] text-nt-gray block mb-1">// BESTURINGS_CENTRUM</span>
+              <span className="font-mono text-[9px] text-nt-gray block mb-1">// CONTROL_CENTER</span>
               <h1 className="font-display font-bold text-lg uppercase tracking-tight text-nt-black">FEED_INJECTOR</h1>
             </div>
 
@@ -337,18 +337,18 @@ export default function AdminDashboard() {
               )}
               {success && (
                 <div className="p-3 bg-green-500/5 text-green-600 rounded border border-green-500/10 flex items-center gap-1.5 font-bold">
-                  <CheckCircle size={12} /> VOEDING_SUCCESVOL_INGESTELD
+                  <CheckCircle size={12} /> FEED_SUCCESSFULLY_INJECTED
                 </div>
               )}
               
               <div>
-                <label className="block text-nt-gray mb-1.5 pl-1 tracking-wider">Vlucht Titel</label>
+                <label className="block text-nt-gray mb-1.5 pl-1 tracking-wider">Flight Title</label>
                 <input 
                   type="text" 
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full bg-nt-bg border border-nt-light-gray rounded px-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black placeholder:text-nt-gray/30 normal-case font-mono"
-                  placeholder="bijv. DJI Lito X1 - Haven vlucht"
+                  placeholder="e.g. DJI Lito X1 - Haven flight"
                   id="feed-title-input"
                 />
               </div>
@@ -384,8 +384,8 @@ export default function AdminDashboard() {
                   onChange={(e: any) => setType(e.target.value)}
                   className="w-full bg-nt-bg border border-nt-light-gray rounded px-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black font-semibold font-mono"
                 >
-                  <option value="video">Cine Video (Liggend)</option>
-                  <option value="short">FPV Short (Staand)</option>
+                  <option value="video">Cine Video (Landscape)</option>
+                  <option value="short">FPV Short (Portrait)</option>
                 </select>
               </div>
 
@@ -393,7 +393,7 @@ export default function AdminDashboard() {
                 disabled={submitting}
                 className="w-full bg-nt-black text-nt-white py-3 rounded text-[10px] font-bold uppercase tracking-widest hover:bg-nt-charcoal disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
               >
-                {submitting ? 'OPSLAAN...' : 'FEED PUBLICEREN'}
+                {submitting ? 'SAVING...' : 'PUBLISH FEED'}
                 <ChevronRight size={14} />
               </button>
             </form>
@@ -405,11 +405,11 @@ export default function AdminDashboard() {
           <div className="bg-nt-white border border-nt-light-gray rounded-xl p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-nt-light-gray pb-4 mb-6">
               <div>
-                <span className="font-mono text-[9px] text-nt-gray block mb-1">// TELEMETRIE_ACTIEVE_FEEDS</span>
+                <span className="font-mono text-[9px] text-nt-gray block mb-1">// TELEMETRY_ACTIVE_FEEDS</span>
                 <h2 className="font-display font-bold text-base uppercase tracking-tight text-nt-black">DATABASE_RECORDS</h2>
               </div>
               <div className="bg-nt-bg font-mono text-[10px] text-nt-charcoal border border-nt-light-gray px-3 py-1 rounded">
-                FEEDS: {items.length} ACTIEVE_KANALEN
+                FEEDS: {items.length} ACTIVE_CHANNELS
               </div>
             </div>
 
@@ -418,10 +418,10 @@ export default function AdminDashboard() {
                 <thead>
                   <tr className="bg-nt-bg border-b border-nt-light-gray text-nt-gray text-[9px] tracking-wider">
                     <th className="px-4 py-3">INDEX</th>
-                    <th className="px-4 py-3">FEED-TITEL</th>
-                    <th className="px-4 py-3">FORMAAT</th>
-                    <th className="px-4 py-3">TIJDSTEMPEL</th>
-                    <th className="px-4 py-3 text-right">ACTIE</th>
+                    <th className="px-4 py-3">FEED TITLE</th>
+                    <th className="px-4 py-3">FORMAT</th>
+                    <th className="px-4 py-3">TIMESTAMP</th>
+                    <th className="px-4 py-3 text-right">ACTION</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-nt-bg">
@@ -479,7 +479,7 @@ export default function AdminDashboard() {
                   {items.length === 0 && (
                     <tr>
                       <td colSpan={5} className="px-4 py-16 text-center text-nt-gray uppercase font-bold italic text-[10px]">
-                        GEEN FEEDS // Wachten op signaalinjectie...
+                        NO ACTIVE FEEDS // Waiting for signal injection...
                       </td>
                     </tr>
                   )}

@@ -22,7 +22,7 @@ export default function AIStudioConsole() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(100);
   const [promptText, setPromptText] = useState(
-    "Genereer een krachtige interactieve kaartexplorer voor historische coördinaten."
+    "Generate a high-performance interactive map explorer for historical coordinates."
   );
   const [generatedCount, setGeneratedCount] = useState(24);
 
@@ -145,9 +145,9 @@ fun TelemetryScreen() {
 
   // Pre-configured list of sample prompts for the users
   const samplePrompts = [
-    "Genereer een krachtige interactieve kaartexplorer voor historische coördinaten.",
-    "Bouw een native Android-applicatie om coördinaten-telemetrie te volgen.",
-    "Ontwerp een responsieve landingpage-lay-out met brutalistische modules."
+    "Generate a high-performance interactive map explorer for historical coordinates.",
+    "Build a native Android application to capture coordinate telemetry.",
+    "Design a responsive landing page layout utilizing brutalist UI modules."
   ];
 
   return (
@@ -161,7 +161,7 @@ fun TelemetryScreen() {
         <div className="flex items-center gap-3 text-[9px] text-nt-gray">
           <span>COMPILES: {generatedCount}</span>
           <span>•</span>
-          <span>STATUS: GEREED</span>
+          <span>STATUS: ONLINE</span>
         </div>
       </div>
 
@@ -170,7 +170,7 @@ fun TelemetryScreen() {
         {/* Left Sidebar: File Tree */}
         <div className="md:col-span-3 border-r border-nt-light-gray bg-nt-white p-3 flex flex-col justify-between">
           <div>
-            <span className="text-[9px] text-nt-gray uppercase tracking-widest block mb-3">// WORKSPACE-bestanden</span>
+            <span className="text-[9px] text-nt-gray uppercase tracking-widest block mb-3">// WORKSPACE_FILES</span>
             
             <div className="space-y-1.5">
               <button 
@@ -202,11 +202,11 @@ fun TelemetryScreen() {
           {/* Quick controls info */}
           <div className="border-t border-nt-light-gray pt-3 mt-4 text-[9px] text-nt-gray space-y-1 select-none">
             <div className="flex justify-between">
-              <span>SDK-versie</span>
+              <span>SDK Version</span>
               <span>genai-v1.2</span>
             </div>
             <div className="flex justify-between">
-              <span>Omgeving</span>
+              <span>Runtime</span>
               <span>Cloud Run</span>
             </div>
           </div>
@@ -221,7 +221,7 @@ fun TelemetryScreen() {
               <div className="w-2 h-2 rounded-full bg-nt-gray/40" />
               <div className="w-2 h-2 rounded-full bg-nt-gray/20" />
             </div>
-            <span className="text-[9px] text-nt-gray tracking-wider uppercase">Actieve_buffer: editor_venster</span>
+            <span className="text-[9px] text-nt-gray tracking-wider uppercase">Active_Buffer: editor_window</span>
           </div>
 
           {/* Code text block */}
@@ -232,7 +232,7 @@ fun TelemetryScreen() {
           {/* Prompt Engine Interface */}
           <div className="bg-nt-dark border-t border-nt-charcoal p-3 space-y-2">
             <div className="flex items-center justify-between text-[8px] text-nt-gray tracking-wider uppercase select-none">
-              <span>Systeem-promptlus</span>
+              <span>System Prompt Loop</span>
               <span className="text-nt-red font-bold">ACTIEVE_TRIGGER</span>
             </div>
             
@@ -242,7 +242,7 @@ fun TelemetryScreen() {
                 value={promptText}
                 onChange={(e) => setPromptText(e.target.value)}
                 disabled={isGenerating}
-                placeholder="Geef instructies aan de Gemini API..." 
+                placeholder="Give instructions to the Gemini API..." 
                 className="flex-1 bg-nt-black border border-nt-charcoal rounded px-3 py-2 text-[10px] text-nt-white focus:outline-none focus:border-nt-red tracking-wide normal-case disabled:opacity-50"
               />
               <button 
@@ -250,7 +250,7 @@ fun TelemetryScreen() {
                 disabled={isGenerating}
                 className="bg-nt-white hover:bg-nt-red text-nt-black hover:text-nt-white px-3 rounded flex items-center justify-center transition-colors disabled:opacity-50 font-bold tracking-widest uppercase text-[9px]"
               >
-                {isGenerating ? "BOUWEN..." : <Sparkles size={14} />}
+                {isGenerating ? "BUILDING..." : <Sparkles size={14} />}
               </button>
             </div>
 
@@ -272,7 +272,7 @@ fun TelemetryScreen() {
           <div>
             {/* View Mode Switches */}
             <div className="flex justify-between items-center mb-4 border-b border-nt-light-gray pb-2.5">
-              <span className="text-[10px] text-nt-gray uppercase tracking-widest font-bold">// LOKALE_UITVOER</span>
+              <span className="text-[10px] text-nt-gray uppercase tracking-widest font-bold">// LOCAL_OUTPUT</span>
               <div className="flex gap-1.5 bg-nt-white p-0.5 rounded border border-nt-light-gray">
                 <button 
                   onClick={() => setPreviewMode("web")}
@@ -315,7 +315,7 @@ fun TelemetryScreen() {
                     </div>
                     {/* Simulated Content inside web */}
                     <div className="p-3.5 space-y-3 font-sans text-left">
-                      <p className="text-[10px] font-bold text-nt-black uppercase tracking-wider">// LOKALE TELEMETRIE KAART</p>
+                      <p className="text-[10px] font-bold text-nt-black uppercase tracking-wider">// LOCAL TELEMETRY MAP</p>
                       
                       {/* Visual grid simulating map elements */}
                       <div className="bg-nt-bg border border-nt-light-gray p-2 rounded relative flex flex-col justify-between overflow-hidden">
@@ -336,15 +336,15 @@ fun TelemetryScreen() {
                           </div>
                           
                           <div className="flex justify-between items-center relative z-10 text-[8px] font-mono text-emerald-400 leading-none">
-                            <span>GRID_KAART_ACTIEF</span>
-                            <span className="animate-led-blink text-rose-500 font-bold">OPNAME</span>
+                            <span>GRID_MAP_ACTIVE</span>
+                            <span className="animate-led-blink text-rose-500 font-bold">RECORD</span>
                           </div>
                         </div>
                       </div>
 
                       <div className="flex justify-between text-[8px] font-mono text-zinc-400">
-                        <span>BREEDTEGRAAD: 52° 07' 57" N</span>
-                        <span>LENGTEGRAAD: 05° 17' 28" E</span>
+                        <span>LATITUDE: 52° 07' 57" N</span>
+                        <span>LONGITUDE: 05° 17' 28" E</span>
                       </div>
                     </div>
                   </motion.div>
@@ -369,18 +369,18 @@ fun TelemetryScreen() {
                       </div>
                       
                       <div className="bg-zinc-800/80 p-2 rounded-lg border border-zinc-700 space-y-2 mb-2">
-                        <span className="text-[7px] text-zinc-400 font-mono block tracking-widest uppercase mb-1">GELOKALISEERDE CONTROLLER</span>
+                        <span className="text-[7px] text-zinc-400 font-mono block tracking-widest uppercase mb-1">LOCALIZED CONTROLLER</span>
                         <div className="h-10 rounded bg-zinc-950 flex items-center justify-center text-zinc-400 text-[9px] font-mono border border-zinc-800 font-bold">
-                          [ SYNC_ACTIEF ]
+                          [ SYNC_ACTIVE ]
                         </div>
                         <button className="w-full bg-rose-500 hover:bg-rose-600 text-[8px] font-bold tracking-widest text-white py-1 rounded text-center transition-colors font-mono uppercase">
-                          CORE IMPLEMENTEREN
+                          IMPLEMENT CORE
                         </button>
                       </div>
 
                       <div className="bg-zinc-800/40 p-2 rounded border border-zinc-700/50 space-y-1">
-                        <span className="text-[6px] text-zinc-500 font-mono block">APPARAAT_TELEMETRIE</span>
-                        <p className="text-[9px] font-bold text-zinc-300 font-mono">BATTERIJ GELADEN 98%</p>
+                        <span className="text-[6px] text-zinc-500 font-mono block">DEVICE_TELEMETRY</span>
+                        <p className="text-[9px] font-bold text-zinc-300 font-mono">BATTERY VOLTAGE 98%</p>
                       </div>
                     </div>
                   </motion.div>
@@ -390,15 +390,15 @@ fun TelemetryScreen() {
           </div>
 
           <div className="text-[9px] text-nt-gray/80 pt-3 border-t border-nt-light-gray flex justify-between select-none">
-            <span>PROMPTS_OPSLAAN: {samplePrompts.length}</span>
-            <span>GOOGLE_CLOUD: STABIEL</span>
+            <span>SAVED_PROMPTS: {samplePrompts.length}</span>
+            <span>GOOGLE_CLOUD: STABLE</span>
           </div>
         </div>
       </div>
 
       {/* Quick Prompts Helper */}
       <div className="bg-nt-bg p-3 border-t border-nt-light-gray block select-none">
-        <span className="text-[9px] text-nt-gray uppercase tracking-widest block mb-1.5">// VOORGEREGISTREERDE SNELTOETSEN</span>
+        <span className="text-[9px] text-nt-gray uppercase tracking-widest block mb-1.5">// REGISTERED PRESET SHORTCUTS</span>
         <div className="flex flex-wrap gap-1.5">
           {samplePrompts.map((p, i) => (
             <button 

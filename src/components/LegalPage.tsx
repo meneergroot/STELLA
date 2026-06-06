@@ -90,9 +90,9 @@ export default function LegalPage() {
     return (
       <div className="min-h-screen flex items-center justify-center p-6 bg-nt-bg font-sans">
         <div className="text-center bg-nt-white p-8 rounded-xl border border-nt-light-gray max-w-sm">
-          <h1 className="font-display font-bold text-xl uppercase mb-2">PAGINA NIET GEVONDEN</h1>
+          <h1 className="font-display font-bold text-xl uppercase mb-2">PAGE NOT FOUND</h1>
           <p className="font-mono text-xs text-nt-gray mb-6">FEED_CHANNEL_ESTABLISHMENT_FAILED</p>
-          <Link to="/" className="text-nt-red font-mono font-bold text-xs uppercase hover:underline">Terug naar home</Link>
+          <Link to="/" className="text-nt-red font-mono font-bold text-xs uppercase hover:underline">Return to Home</Link>
         </div>
       </div>
     );

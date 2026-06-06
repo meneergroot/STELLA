@@ -67,9 +67,9 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 font-mono text-xs text-nt-gray" id="nav-desktop">
-          <a href="#features" className="hover:text-nt-black transition-colors uppercase">Kenmerken</a>
+          <a href="#features" className="hover:text-nt-black transition-colors uppercase">Features</a>
           <a href="#portfolio" className="hover:text-nt-black transition-colors uppercase">Portfolio</a>
-          <Link to="/apparatuur" className="hover:text-nt-black transition-colors uppercase">Apparatuur</Link>
+          <Link to="/apparatuur" className="hover:text-nt-black transition-colors uppercase">Equipment</Link>
           <Link to="/admin" className="hover:text-nt-black transition-colors flex items-center gap-1.5 uppercase">
             <Lock size={12} /> Admin
           </Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
             className="bg-nt-black text-nt-white px-5 py-2 rounded text-xs hover:bg-nt-charcoal transition-all shadow-sm font-bold uppercase tracking-wider"
             id="nav-cta-email"
           >
-            Aan de slag
+            Get Started
           </a>
         </div>
 
@@ -100,9 +100,9 @@ const Navbar = () => {
           className="md:hidden absolute top-full left-0 right-0 bg-nt-white border-b border-nt-light-gray p-6 flex flex-col gap-4 shadow-lg font-mono text-xs"
           id="nav-mobile-menu"
         >
-          <a href="#features" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>Kenmerken</a>
+          <a href="#features" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>Features</a>
           <a href="#portfolio" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>Portfolio</a>
-          <Link to="/apparatuur" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>Apparatuur</Link>
+          <Link to="/apparatuur" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>Equipment</Link>
           <Link to="/admin" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg flex items-center gap-2" onClick={() => setIsOpen(false)}>
             <Lock size={12} /> Admin
           </Link>
@@ -110,7 +110,7 @@ const Navbar = () => {
             href="mailto:meneergroot@icloud.com"
             className="bg-nt-black text-nt-white px-5 py-3 rounded text-center block font-bold uppercase tracking-widest mt-2"
           >
-            Aan de slag
+            Get Started
           </a>
         </motion.div>
       )}
@@ -156,7 +156,7 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
           </h1>
 
           <p className="text-sm md:text-base font-mono text-nt-gray mb-10 max-w-lg leading-relaxed">
-            Wij ontwikkelen hoogwaardige websystemen en native Android-apps met pure industriële precisie. Volledig geoptimaliseerd met Google AI Studio.
+            We develop high-performance web systems and native Android apps with pure industrial precision. Fully optimized with Google AI Studio.
           </p>
 
           <div className="flex flex-wrap gap-3 font-mono text-xs">
@@ -165,7 +165,7 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
               className="bg-nt-black text-nt-white px-6 py-3.5 rounded hover:bg-nt-charcoal transition-all shadow flex items-center gap-2 font-bold uppercase tracking-wider"
               id="hero-get-started-btn"
             >
-              Aan de slag 
+              Get Started 
               <ArrowRight size={14} />
             </a>
             
@@ -175,7 +175,7 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
               id="hero-portfolio-btn"
             >
               <Code size={14} className="text-nt-black" /> 
-              Bekijk codebases
+              View Codebases
             </a>
           </div>
         </motion.div>
@@ -229,13 +229,13 @@ const Features = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-1 bg-nt-bg border border-nt-light-gray px-3 py-1 rounded text-[10px] font-mono text-nt-gray mb-4 uppercase">
-            <span>[02_DIAG_OVERZICHT]</span>
+            <span>[02_DIAG_OVERVIEW]</span>
           </div>
           <h2 className="font-display text-3xl md:text-5xl uppercase tracking-tight font-medium text-nt-black mb-4">
-            ESTHETISCHE EN ENORME <span className="font-dot text-2xl md:text-4xl text-nt-red block sm:inline">SNELLE_VOLTOOIING</span> PRECISIE
+            AESTHETIC AND <span className="font-dot text-2xl md:text-4xl text-nt-red block sm:inline">RAPID_DEV</span> PRECISION
           </h2>
           <p className="text-xs font-mono text-nt-gray max-w-lg mx-auto">
-            Van strakke single-view ontwerpen tot native Android Kotlin-workspaces, wij structureren uw internetproducten met schone lay-outs en volledige databasebeveiliging.
+            From sleek single-view designs to native Android Kotlin workspaces, we structure your internet products with clean layouts and complete database safety.
           </p>
         </div>
 
@@ -244,38 +244,38 @@ const Features = () => {
           <FeatureCard 
             num="D01"
             icon={Code}
-            title="AI-KOPPELING & INTEGRATIE"
-            desc="Geavanceerde prompts in Google AI Studio inzetten om robuuste lay-outs, content-indexen en REST-modules te leveren."
+            title="AI SYSTEM INTEGRATION"
+            desc="Leveraging advanced prompts in Google AI Studio to deploy robust layouts, content pipelines, and active REST modules."
           />
           <FeatureCard 
             num="D02"
             icon={Smartphone}
-            title="NATIVE ANDROID-LAY-OUTS"
-            desc="Strakke, voor compilatie geverifieerde Android-applicaties die direct in Kotlin zijn geschreven met Material Design-afmetingen."
+            title="NATIVE ANDROID LAYOUTS"
+            desc="Sleek, compile-verified Android applications written directly in Kotlin styled with strict layout bounds."
           />
           <FeatureCard 
             num="D03"
             icon={Layers}
-            title="TAILWIND-ONTWERPEN"
-            desc="Perfecte visuele dichtheid en typografische lay-outs gestyled via hoogwaardige responsieve utilities."
+            title="TAILWIND STYLE ENGINE"
+            desc="Perfect visual density and typographic pairings utilizing high-performance utility classes and responsive setups."
           />
           <FeatureCard 
             num="D04"
             icon={Globe}
-            title="INTERACTIEF WEB"
-            desc="Responsieve interfaces ontwikkeld met React 18 en de Vite-structuur om direct op gebruikersschermen te laden."
+            title="INTERACTIVE WEB SYSTEM"
+            desc="Responsive user interfaces developed with React 18 and Vite structures for instantaneous runtime speeds."
           />
           <FeatureCard 
             num="D05"
             icon={Shield}
-            title="VEILIG & GEÏNTEGREERD"
-            desc="Uitgebreide Firestore-beveiligingsregels, Firebase Auth-validaties en gecodeerde back-to-front tunnels."
+            title="SECURED DATABASE PORTALS"
+            desc="Comprehensive Firestore security rule bounds, Firebase Auth validations, and verified client-server state operations."
           />
           <FeatureCard 
             num="D06"
             icon={Zap}
-            title="CLOUD RUN INFRASTRUCTUUR"
-            desc="Serverimplementatie-sjablonen die zijn geoptimaliseerd om piekbelastingen bij meerdere gelijktijdige gebruikers veilig en automatisch op te vangen."
+            title="CLOUD RUN ORCHESTRATION"
+            desc="Optimized production build parameters scaling seamlessly to balance high-volume peak metrics dynamically."
           />
         </div>
       </div>
@@ -313,7 +313,7 @@ const STATIC_WEB_PROJECTS = [
     title: "KLAPPY",
     videoUrl: "https://klappy.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?auto=format&fit=crop&q=80&w=600",
-    description: "Een Flappy Bird-stijl webgame met hoge getrouwheid, gebouwd voor verslavende en responsieve arcade-actie.",
+    description: "A high-fidelity Flappy Bird-style web game built for addictive and responsive arcade action.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-25") }
   },
@@ -322,7 +322,7 @@ const STATIC_WEB_PROJECTS = [
     title: "WYNDER",
     videoUrl: "https://wynder.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&q=80&w=600",
-    description: "Een Tinder-achtige swipe-app, exclusief ontworpen voor het ontdekken en matchen van luxe horloges.",
+    description: "A Tinder-style swipe app, designed exclusively for luxury watch matchmaking and discovery.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-24") }
   },
@@ -331,7 +331,7 @@ const STATIC_WEB_PROJECTS = [
     title: "VAIIYA",
     videoUrl: "https://vaiiya.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600",
-    description: "Officiële agency showcase en web-aanwezigheid voor een geavanceerd software-engineeringadviesbureau.",
+    description: "Official agency showcase and web presence for an advanced software engineering consultancy.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-23") }
   },
@@ -340,7 +340,7 @@ const STATIC_WEB_PROJECTS = [
     title: "HASHCUBE",
     videoUrl: "https://hashcube.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=600",
-    description: "Een gedecentraliseerd peer-to-peer deel- en indexeringsplatform in Pirate Bay-stijl gebaseerd op IPFS-hashes.",
+    description: "A Pirate Bay-style decentralized peer-to-peer sharing and indexing platform based on IPFS hashes.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-22") }
   },
@@ -349,7 +349,7 @@ const STATIC_WEB_PROJECTS = [
     title: "VELVET MUSIC",
     videoUrl: "https://velvetmusic.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600",
-    description: "Een uitgebreid catalogiseringsplatform voor muziekliefhebbers en verzamelaars, gestyled in een op Discogs geïnspireerde esthetiek.",
+    description: "An expansive cataloging platform for music enthusiasts and collectors, styled with a Discogs-inspired aesthetic.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-21") }
   },
@@ -358,7 +358,7 @@ const STATIC_WEB_PROJECTS = [
     title: "BY BOWIE",
     videoUrl: "https://bybowie.vercel.app/",
     thumbnail: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600",
-    description: "Een persoonlijk e-commerceplatform gewijd aan het presenteren en verkopen van unieke handgemaakte kunstwerken gemaakt door kinderen.",
+    description: "A personal e-Commerce web platform dedicated to showcasing and selling unique handmade craftworks created by children.",
     type: "video",
     createdAt: { toDate: () => new Date("2026-05-20") }
   }
@@ -370,7 +370,7 @@ const STATIC_DRONE_PROJECTS = [
     title: "CTR PORT OF ROTTERDAM FLYOVER",
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     thumbnail: "https://images.unsplash.com/photo-1521747116042-5a810fa9643d?auto=format&fit=crop&q=80&w=600",
-    description: "Volledig goedgekeurde legale vluchten op grote hoogte om maritieme vrachtoverslag in beperkte CTR-zones vast te leggen.",
+    description: "Fully permitted legal high-altitude flight operations capturing maritime cargo transitions in restricted CTR boundaries.",
     type: "drone",
     createdAt: { toDate: () => new Date("2026-05-28") }
   },
@@ -379,7 +379,7 @@ const STATIC_DRONE_PROJECTS = [
     title: "UTRECHT RESIDENTIAL ROOF INSPECTIONS",
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     thumbnail: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600",
-    description: "Thermische zonnepaneel inspecties en uitgebreide optische dakscans, opgeleverd binnen 45 minuten.",
+    description: "Thermal solar panel efficiency inspections and comprehensive visual roof mapping, completed in 45 minutes.",
     type: "drone",
     createdAt: { toDate: () => new Date("2026-05-27") }
   },
@@ -388,7 +388,7 @@ const STATIC_DRONE_PROJECTS = [
     title: "AMSTERDAM AMSTEL BY NIGHT",
     videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     thumbnail: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=600",
-    description: "Cinematografische schemerlicht-vluchtopname met behulp van aangepaste camera-stabilisatoren onder strikte nachtvluchtvergunningen.",
+    description: "Cinematic twilight flight captures utilizing specialized heavy-duty stabilization rigs under robust night authorizations.",
     type: "drone",
     createdAt: { toDate: () => new Date("2026-05-26") }
   }
@@ -401,30 +401,30 @@ const DroneServicesSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-1.5 bg-nt-bg border border-nt-light-gray px-3 py-1 rounded text-[10px] font-mono text-nt-gray mb-4 uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-nt-red animate-led-blink" />
-            <span>[04_LUCHT_OPERATIES]</span>
+            <span>[04_AERIAL_OPERATIONS]</span>
           </div>
           <h2 className="font-display text-3xl md:text-5xl uppercase tracking-tight font-medium text-nt-black mb-4">
-            GECERTIFICEERDE DRONE-FOTOGRAFIE & DIENSTEN
+            CERTIFIED DRONE PHOTOGRAPHY & SERVICES
           </h2>
           <p className="text-xs font-mono text-nt-gray max-w-xl mx-auto uppercase leading-relaxed">
-            Legale, hoge-resolutie vluchtactiviteiten uitgevoerd onder volledige CTR-luchtruimtelisenties. Wij leveren precisie-media, thermische analyses en dynamische video's.
+            Lawful, high-resolution flight activities conducted under full CTR airspace authorizations. We deliver precision media assets, thermal layouts, and dynamic footage.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Drone Fotografie */}
           <div className="bg-nt-bg border border-nt-light-gray rounded-2xl overflow-hidden p-6 hover:border-nt-black transition-all flex flex-col justify-between group h-full">
             <div>
               <div className="aspect-video bg-nt-light-gray rounded-xl overflow-hidden mb-6 relative">
                 <img 
                   src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=600" 
-                  alt="Drone Fotografie" 
+                  alt="Drone Photography" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-3 left-3 bg-nt-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[8px] font-mono text-nt-black font-bold uppercase border border-nt-light-gray flex items-center gap-1">
                   <span className="w-1 h-1 rounded-full bg-nt-red animate-pulse" />
-                  CTR_VERGUNNING: ACTIEF
+                  CTR_PERMIT: ACTIVE
                 </div>
               </div>
 
@@ -432,10 +432,10 @@ const DroneServicesSection = () => {
                 <div className="p-2 border border-nt-light-gray rounded bg-nt-white text-nt-black group-hover:bg-nt-black group-hover:text-nt-white transition-colors">
                   <Camera size={16} />
                 </div>
-                <h3 className="font-display font-medium uppercase tracking-tight text-base text-nt-black">Drone Fotografie</h3>
+                <h3 className="font-display font-medium uppercase tracking-tight text-base text-nt-black">Drone Photography</h3>
               </div>
               <p className="text-xs font-mono text-nt-gray leading-relaxed mb-6">
-                Professionele luchtfotografie in ultra-hoge resolutie. Door onze speciale licenties vliegen wij gecertificeerd in CTR-luchtruimtes voor vastgoed en industrie.
+                Professional high-resolution aerial imaging. Due to our licensing profile, we operate lawfully inside restricted CTR regions for real estate and industrial needs.
               </p>
             </div>
 
@@ -443,7 +443,7 @@ const DroneServicesSection = () => {
               to="/services/drone-fotografie" 
               className="mt-2 self-start flex items-center gap-2 text-xs font-mono font-bold text-nt-black hover:text-nt-red transition-colors uppercase"
             >
-              Specificaties Bekijken <ArrowRight size={14} />
+              Configure Specifications <ArrowRight size={14} />
             </Link>
           </div>
 
@@ -453,13 +453,13 @@ const DroneServicesSection = () => {
               <div className="aspect-video bg-nt-light-gray rounded-xl overflow-hidden mb-6 relative">
                 <img 
                   src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=600" 
-                  alt="Drone Videografie" 
+                  alt="Drone Videography" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-3 left-3 bg-nt-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[8px] font-mono text-nt-black font-bold uppercase border border-nt-light-gray flex items-center gap-1">
                   <span className="w-1 h-1 rounded-full bg-nt-red animate-pulse" />
-                  NACHTVLUCHTEN: TOEGESTAAN
+                  NIGHT_FLIGHTS: AUTHORIZED
                 </div>
               </div>
 
@@ -467,10 +467,10 @@ const DroneServicesSection = () => {
                 <div className="p-2 border border-nt-light-gray rounded bg-nt-white text-nt-black group-hover:bg-nt-black group-hover:text-nt-white transition-colors">
                   <Video size={16} />
                 </div>
-                <h3 className="font-display font-medium uppercase tracking-tight text-base text-nt-black">Drone Videografie</h3>
+                <h3 className="font-display font-medium uppercase tracking-tight text-base text-nt-black">Drone Videography</h3>
               </div>
               <p className="text-xs font-mono text-nt-gray leading-relaxed mb-6">
-                Cinematografische 4K/8K drone-video's. Gecertificeerd voor opnames in het donker (nachtvluchten) en FPV chases binnenshuis.
+                Cinematic 4K/8K drone tracking assets. Certified for motion frames in the dark (night flights) and specialized indoor FPV configurations.
               </p>
             </div>
 
@@ -478,42 +478,7 @@ const DroneServicesSection = () => {
               to="/services/drone-videografie" 
               className="mt-2 self-start flex items-center gap-2 text-xs font-mono font-bold text-nt-black hover:text-nt-red transition-colors uppercase"
             >
-              Specificaties Bekijken <ArrowRight size={14} />
-            </Link>
-          </div>
-
-          {/* Drone Dakinspectie */}
-          <div className="bg-nt-bg border border-nt-light-gray rounded-2xl overflow-hidden p-6 hover:border-nt-black transition-all flex flex-col justify-between group h-full">
-            <div>
-              <div className="aspect-video bg-nt-light-gray rounded-xl overflow-hidden mb-6 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600" 
-                  alt="Drone Dakinspectie" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-3 left-3 bg-nt-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[8px] font-mono text-nt-black font-bold uppercase border border-nt-light-gray flex items-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-nt-red animate-pulse" />
-                  SCANCYCLUS: VEILIG
-                </div>
-              </div>
-
-              <div className="flex gap-3 items-center mb-4">
-                <div className="p-2 border border-nt-light-gray rounded bg-nt-white text-nt-black group-hover:bg-nt-black group-hover:text-nt-white transition-colors">
-                  <Eye size={16} />
-                </div>
-                <h3 className="font-display font-medium uppercase tracking-tight text-base text-nt-black">Drone Dakinspectie</h3>
-              </div>
-              <p className="text-xs font-mono text-nt-gray leading-relaxed mb-6">
-                Snelle daksignalering en thermische zonnepaneel inspectie binnen een uur geklaard. Geen dure hoogwerkers of steigers meer nodig.
-              </p>
-            </div>
-
-            <Link 
-              to="/services/drone-dakinspectie" 
-              className="mt-2 self-start flex items-center gap-2 text-xs font-mono font-bold text-nt-black hover:text-nt-red transition-colors uppercase"
-            >
-              Specificaties Bekijken <ArrowRight size={14} />
+              Configure Specifications <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -556,10 +521,10 @@ const PortfolioSection = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-nt-light-gray pb-6">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-nt-white border border-nt-light-gray px-2 py-0.5 rounded text-[9px] font-mono text-nt-gray mb-3 uppercase">
-              <span>[03_PROJECTEN_STREAMS]</span>
+              <span>[03_PROJECTS_STREAMS]</span>
             </div>
             <h2 className="font-display text-2xl md:text-4xl font-medium uppercase tracking-tight text-nt-black">
-              RECENTE <span className="font-dot text-nt-red block sm:inline">APPS_AND_PROJECTS</span>
+              RECENT <span className="font-dot text-nt-red block sm:inline">APPS_AND_PROJECTS</span>
             </h2>
           </div>
 
@@ -570,21 +535,21 @@ const PortfolioSection = () => {
               className={`px-4 py-2 rounded transition-all uppercase tracking-wider ${filter === "video" ? "bg-nt-black text-nt-white" : "text-nt-gray hover:text-nt-black text-xs"}`}
               id="portfolio-filter-web-btn"
             >
-              Webprojecten
+              Web Projects
             </button>
             <button 
               onClick={() => setFilter("drone")}
               className={`px-4 py-2 rounded transition-all uppercase tracking-wider ${filter === "drone" ? "bg-nt-black text-nt-white" : "text-nt-gray hover:text-nt-black text-xs"}`}
               id="portfolio-filter-drone-btn"
             >
-              Drone-opnames
+              Drone Capture
             </button>
             <button 
               onClick={() => setFilter("short")}
               className={`px-4 py-2 rounded transition-all uppercase tracking-wider ${filter === "short" ? "bg-nt-black text-nt-white" : "text-nt-gray hover:text-nt-black text-xs"}`}
               id="portfolio-filter-android-btn"
             >
-              Android-apps
+              Android Apps
             </button>
           </div>
         </div>
@@ -603,7 +568,7 @@ const PortfolioSection = () => {
           </div>
         ) : filteredVideos.length === 0 ? (
           <div className="bg-nt-white p-16 rounded-xl text-center border-t border-b border-nt-light-gray font-mono text-xs text-nt-gray max-w-md mx-auto">
-            <span>GEEN_PROJECTEN_GELOKALISEERD_IN_DIT_KANAAL</span>
+            <span>NO_PROJECTS_ESTABLISHED_IN_THIS_CHANNEL</span>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -684,7 +649,7 @@ const MainSite = () => (
           {/* Signal Indicator badge */}
           <div className="absolute top-4 right-4 flex items-center gap-1 bg-nt-charcoal px-3 py-1 border border-nt-charcoal rounded text-[10px] font-mono text-nt-gray uppercase">
             <span className="w-1.5 h-1.5 bg-nt-red rounded-full animate-led-blink" />
-            <span>DEV_STABIEL</span>
+            <span>DEV_STABLE</span>
           </div>
 
           <h2 className="font-display font-medium text-4xl md:text-6xl text-center uppercase tracking-tight text-nt-white mb-6">
@@ -693,7 +658,7 @@ const MainSite = () => (
           </h2>
           
           <p className="font-mono text-xs text-nt-gray text-center max-w-xl mb-10 leading-relaxed uppercase">
-            Lanceer uw volgende op maat gemaakte webapplicatie of volledig gecompileerde native Android-app bij ons. Wij leveren modulaire architecturen, extreme prestaties bij piekbelastingen en strakke ontwerpen.
+            Launch your next custom web application or fully compiled native Android app with us. We deliver modular architectures, extreme peak-performance loads, and strict designs.
           </p>
 
           <a 
@@ -701,7 +666,7 @@ const MainSite = () => (
             className="bg-nt-white text-nt-black font-mono font-bold text-xs uppercase tracking-widest px-8 py-4 rounded hover:bg-nt-red hover:text-nt-white transition-all shadow-xl block"
             id="footer-cta-email"
           >
-            NEEM CONTACT OP (E-MAIL)
+            GET IN TOUCH (EMAIL)
           </a>
         </div>
       </section>
