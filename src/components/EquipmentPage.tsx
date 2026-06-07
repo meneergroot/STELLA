@@ -64,15 +64,15 @@ export default function EquipmentPage() {
               {/* Technical stat grids */}
               <div className="grid grid-cols-3 gap-4 font-mono text-xs text-nt-charcoal">
                 <div className="bg-nt-white p-4 border border-nt-light-gray rounded-lg">
-                  <span className="block text-2xl font-bold font-display text-nt-black mb-1">VITE</span>
+                  <span className="block text-xl font-bold font-display text-nt-black mb-1">VITE</span>
                   <span className="text-[9px] text-nt-gray uppercase tracking-widest">REACT // ULTRA FAST</span>
                 </div>
                 <div className="bg-nt-white p-4 border border-nt-light-gray rounded-lg">
-                  <span className="block text-2xl font-bold font-display text-nt-black mb-1">KOTLIN</span>
+                  <span className="block text-xl font-bold font-display text-nt-black mb-1">KOTLIN</span>
                   <span className="text-[9px] text-nt-gray uppercase tracking-widest">NATIVE MOBILE</span>
                 </div>
                 <div className="bg-nt-white p-4 border border-nt-light-gray rounded-lg">
-                  <span className="block text-2xl font-bold font-display text-nt-black mb-1">SECURE</span>
+                  <span className="block text-xl font-bold font-display text-nt-black mb-1">SECURE</span>
                   <span className="text-[9px] text-nt-gray uppercase tracking-widest">FIREBASE CLOUD</span>
                 </div>
               </div>

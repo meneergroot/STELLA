@@ -55,8 +55,8 @@ export default function TelemetryDashboard() {
       </div>
     </div>
   );
-}`,
-    kt: `// app/src/main/java/com/stella/MainActivity.kt - Android SDK
+ }`,
+    kt: `// app/src/main/java/com/stella/app/MainActivity.kt - Android SDK
 package com.stella.app
 
 import android.os.Bundle

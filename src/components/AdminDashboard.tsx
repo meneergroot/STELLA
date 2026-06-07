@@ -32,7 +32,7 @@ import {
   Globe, 
   Video, 
   Zap,
-  Drone,
+  Cpu,
   LayoutDashboard,
   ArrowLeft,
   Settings,
@@ -85,7 +85,7 @@ export default function AdminDashboard() {
   // Content form state
   const [title, setTitle] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
-  const [type, setType] = useState<'video' | 'short'>('video');
+  const [type, setType] = useState<'video' | 'short' | 'drone'>('video');
   const [thumbnail, setThumbnail] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
         }
       } else {
         // Check local storage for fake login session
-        const isFakeLogin = localStorage.getItem('stella_admin_session') === 'true';
+        const isFakeLogin = localStorage.getItem('stellamontis_admin_session') === 'true';
         if (isFakeLogin) {
           setIsAdmin(true);
           fetchItems();
@@ -136,7 +136,7 @@ export default function AdminDashboard() {
   const handleFakeLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('stella_admin_session', 'true');
+      localStorage.setItem('stellamontis_admin_session', 'true');
       setIsAdmin(true);
       fetchItems();
     } else {
@@ -146,7 +146,7 @@ export default function AdminDashboard() {
 
   const handleLogout = () => {
     signOut(auth);
-    localStorage.removeItem('stella_admin_session');
+    localStorage.removeItem('stellamontis_admin_session');
     setIsAdmin(false);
   };
 
@@ -296,7 +296,7 @@ export default function AdminDashboard() {
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center gap-2 group cursor-pointer">
             <div className="w-7 h-7 bg-nt-black rounded flex items-center justify-center text-nt-white">
-              <Drone size={14} />
+              <Cpu size={14} />
             </div>
             <span className="text-xs font-dot uppercase tracking-widest text-nt-black">STELLA_MONTIS_ADMIN</span>
           </Link>
@@ -342,13 +342,13 @@ export default function AdminDashboard() {
               )}
               
               <div>
-                <label className="block text-nt-gray mb-1.5 pl-1 tracking-wider">Flight Title</label>
+                <label className="block text-nt-gray mb-1.5 pl-1 tracking-wider">Stream Title</label>
                 <input 
                   type="text" 
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full bg-nt-bg border border-nt-light-gray rounded px-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black placeholder:text-nt-gray/30 normal-case font-mono"
-                  placeholder="e.g. DJI Lito X1 - Haven flight"
+                  placeholder="e.g. Shroud - Valorant Live Match"
                   id="feed-title-input"
                 />
               </div>
@@ -384,8 +384,9 @@ export default function AdminDashboard() {
                   onChange={(e: any) => setType(e.target.value)}
                   className="w-full bg-nt-bg border border-nt-light-gray rounded px-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black font-semibold font-mono"
                 >
-                  <option value="video">Cine Video (Landscape)</option>
-                  <option value="short">FPV Short (Portrait)</option>
+                  <option value="video">Web Portal (Landscape)</option>
+                  <option value="short">Short/VOD Clip (Portrait)</option>
+                  <option value="drone">Drone Footage (Landscape)</option>
                 </select>
               </div>
 
@@ -456,7 +457,13 @@ export default function AdminDashboard() {
                           </div>
                         </td>
                         <td className="px-4 py-4 text-[10px]">
-                          <span className={`px-2 py-0.5 border rounded ${item.type === 'video' ? 'bg-nt-bg border-nt-light-gray text-nt-black' : 'border-nt-red text-nt-red'}`}>
+                          <span className={`px-2 py-0.5 border rounded ${
+                            item.type === 'video' 
+                              ? 'bg-nt-bg border-nt-light-gray text-nt-black' 
+                              : item.type === 'drone'
+                              ? 'bg-nt-black text-nt-white border-nt-black'
+                              : 'border-nt-red text-nt-red'
+                          }`}>
                             {item.type}
                           </span>
                         </td>
