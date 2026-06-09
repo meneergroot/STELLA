@@ -365,7 +365,7 @@ const STATIC_WEB_PROJECTS = [
   {
     id: "static-velvet",
     title: "VELVET MUSIC",
-    videoUrl: "https://velvetmusic.vercel.app/",
+    videoUrl: "https://pop-eye.nl",
     thumbnail: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=600",
     description: "An expansive cataloging platform for music enthusiasts and collectors, styled with a Discogs-inspired aesthetic.",
     type: "video",
