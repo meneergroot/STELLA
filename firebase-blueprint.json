@@ -36,7 +36,8 @@
         "price": { "type": "number", "description": "Retail price" },
         "imageUrls": { "type": "array", "items": { "type": "string" }, "description": "Product images or render links" },
         "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation" },
-        "createdBy": { "type": "string", "description": "User ID of the manager" }
+        "createdBy": { "type": "string", "description": "User ID of the manager" },
+        "internalNotes": { "type": "string", "description": "Internal comments or private metadata like stashed URLs" }
       },
       "required": ["title", "description", "stock", "ean", "price", "imageUrls", "createdAt", "createdBy"]
     }

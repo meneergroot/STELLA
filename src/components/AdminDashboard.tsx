@@ -76,6 +76,7 @@ export default function AdminDashboard() {
   const [ean, setEan] = useState('');
   const [price, setPrice] = useState<string>('24.99');
   const [imageUrls, setImageUrls] = useState<string[]>([]);
+  const [internalNotes, setInternalNotes] = useState('');
   const [newImageUrl, setNewImageUrl] = useState('');
   const [editingId, setEditingId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -195,7 +196,8 @@ export default function AdminDashboard() {
         ean: ean.trim(),
         price: priceNum,
         imageUrls: imageUrls,
-        createdBy: user?.uid || 'anonymous'
+        createdBy: user?.uid || 'anonymous',
+        internalNotes: internalNotes.trim()
       };
 
       if (editingId) {
@@ -222,6 +224,7 @@ export default function AdminDashboard() {
       setPrice('24.99');
       setImageUrls([]);
       setNewImageUrl('');
+      setInternalNotes('');
       setEditingId(null);
       setSuccess(true);
       fetchProducts();
@@ -253,6 +256,7 @@ export default function AdminDashboard() {
     setEan(prod.ean || '');
     setPrice(prod.price !== undefined ? String(prod.price) : '0.00');
     setImageUrls(prod.imageUrls || []);
+    setInternalNotes(prod.internalNotes || '');
     setNewImageUrl('');
     setFormError(null);
     setSuccess(false);
@@ -446,6 +450,7 @@ export default function AdminDashboard() {
               setPrice('19.99');
               setImageUrls([]);
               setNewImageUrl('');
+              setInternalNotes('');
               setFormError(null);
               setActiveTab('editor');
             }}
@@ -595,6 +600,20 @@ export default function AdminDashboard() {
                                   <div className="min-w-0">
                                     <span className="font-bold text-nt-black text-xs leading-snug line-clamp-2 uppercase font-sans tracking-tight">{item.title}</span>
                                     <span className="text-[10px] text-nt-gray text-xxs lowercase line-clamp-1 mt-0.5 normal-case block max-w-xs">{item.description}</span>
+                                    {item.internalNotes && (
+                                      <div className="mt-1.5 p-1.5 bg-neutral-100 border border-neutral-200/60 rounded text-[9px] font-mono text-neutral-600 uppercase tracking-tight flex items-center gap-1.5 max-w-xs break-all leading-normal normal-case">
+                                        <span className="font-bold text-[8.5px] tracking-wider bg-neutral-200 text-neutral-700 px-1 rounded uppercase shrink-0">INT COMMENT:</span>
+                                        <span className="line-clamp-2">
+                                          {item.internalNotes.startsWith('http') ? (
+                                            <a href={item.internalNotes} target="_blank" rel="noopener noreferrer" className="text-nt-red hover:underline font-bold">
+                                              {item.internalNotes}
+                                            </a>
+                                          ) : (
+                                            item.internalNotes
+                                          )}
+                                        </span>
+                                      </div>
+                                    )}
                                   </div>
                                 </div>
                               </td>
@@ -841,6 +860,19 @@ export default function AdminDashboard() {
                             className="w-full bg-nt-bg border border-nt-light-gray rounded pl-8 pr-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black font-mono font-semibold"
                             placeholder="15"
                             min="0"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-nt-gray mb-1.5 pl-1 tracking-wider">Internal Use Only (Private Notes)</label>
+                        <div className="relative">
+                          <textarea 
+                            value={internalNotes}
+                            onChange={(e) => setInternalNotes(e.target.value)}
+                            rows={3}
+                            className="w-full bg-nt-bg border border-nt-light-gray rounded px-3 py-2 text-xs outline-none focus:border-nt-black text-nt-black font-mono placeholder:text-nt-gray/35 normal-case"
+                            placeholder="Stash private comments or URLs here (e.g., 3DP stashing links). Hidden from public shop."
                           />
                         </div>
                       </div>

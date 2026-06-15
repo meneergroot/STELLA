@@ -3,6 +3,7 @@ export interface TranslationSection {
   nav_portfolio: string;
   nav_tech_stack: string;
   nav_admin: string;
+  nav_shop: string;
   nav_get_started: string;
   nav_websites: string;
   nav_apps: string;
@@ -95,6 +96,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_portfolio: "Portfolio",
     nav_tech_stack: "Tech Stack",
     nav_admin: "Admin",
+    nav_shop: "Shop",
     nav_get_started: "Get Started",
     nav_websites: "Websites",
     nav_apps: "Apps",
@@ -184,6 +186,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_portfolio: "Portfolio",
     nav_tech_stack: "Tech Stack",
     nav_admin: "Beheer",
+    nav_shop: "Winkel",
     nav_get_started: "Begin direct",
     nav_websites: "Websites",
     nav_apps: "Apps",
@@ -273,6 +276,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_portfolio: "Portfolio",
     nav_tech_stack: "Tech Stack",
     nav_admin: "Verwaltung",
+    nav_shop: "Shop",
     nav_get_started: "Loslegen",
     nav_websites: "Websites",
     nav_apps: "Apps",
