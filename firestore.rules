@@ -28,26 +28,29 @@ service cloud.firestore {
                data.thumbnail is string && data.thumbnail.size() <= 1000 &&
                data.videoUrl is string && data.videoUrl.size() <= 1000 &&
                data.type in ['video', 'short'] &&
-               data.createdBy == request.auth.uid;
+               (
+                 (request.auth != null && data.createdBy == request.auth.uid) ||
+                 (request.auth == null && data.createdBy == 'anonymous')
+               );
       }
 
       // Public can list and get
       allow get: if true;
       allow list: if true;
 
-      // Only Admin can create
-      allow create: if isAdmin() && 
+      // Only Admin or Unauthenticated Demo can create
+      allow create: if (isAdmin() || request.auth == null) && 
                       isValidPortfolioItem(incoming()) && 
                       incoming().createdAt == request.time;
 
-      // Only Admin can update
-      allow update: if isAdmin() && 
+      // Only Admin or Unauthenticated Demo can update
+      allow update: if (isAdmin() || request.auth == null) && 
                       isValidPortfolioItem(incoming()) && 
                       incoming().createdAt == existing().createdAt &&
                       incoming().createdBy == existing().createdBy;
 
-      // Only Admin can delete
-      allow delete: if isAdmin();
+      // Only Admin or Unauthenticated Demo can delete
+      allow delete: if isAdmin() || request.auth == null;
     }
 
     // --- PRODUCTS COLLECTION ---
@@ -58,29 +61,32 @@ service cloud.firestore {
                data.title is string && data.title.size() <= 200 &&
                data.description is string && data.description.size() <= 5000 &&
                data.stock is int && data.stock >= 0 &&
-               data.price is number && data.price >= 0 &&
+               (data.price is int || data.price is float) && data.price >= 0 &&
                data.ean is string && data.ean.size() <= 64 &&
                data.imageUrls is list && data.imageUrls.size() <= 15 &&
-               data.createdBy == request.auth.uid;
+               (
+                 (request.auth != null && data.createdBy == request.auth.uid) ||
+                 (request.auth == null && data.createdBy == 'anonymous')
+               );
       }
 
       // Public can list and get
       allow get: if true;
       allow list: if true;
 
-      // Only Admin can create
-      allow create: if isAdmin() && 
+      // Only Admin or Unauthenticated Demo can create
+      allow create: if (isAdmin() || request.auth == null) && 
                       isValidProduct(incoming()) && 
                       incoming().createdAt == request.time;
 
-      // Only Admin can update
-      allow update: if isAdmin() && 
+      // Only Admin or Unauthenticated Demo can update
+      allow update: if (isAdmin() || request.auth == null) && 
                       isValidProduct(incoming()) && 
                       incoming().createdAt == existing().createdAt &&
                       incoming().createdBy == existing().createdBy;
 
-      // Only Admin can delete
-      allow delete: if isAdmin();
+      // Only Admin or Unauthenticated Demo can delete
+      allow delete: if isAdmin() || request.auth == null;
     }
 
     // --- ADMINS COLLECTION ---
