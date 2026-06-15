@@ -23,6 +23,22 @@
         "role": { "type": "string", "enum": ["admin"] }
       },
       "required": ["email", "role"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "An ecommerce product managed inside the WordPress-like admin dashboard",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the product" },
+        "description": { "type": "string", "description": "Details and specs of the product" },
+        "stock": { "type": "integer", "description": "Quantity available in store" },
+        "ean": { "type": "string", "description": "European Article Number barcode" },
+        "price": { "type": "number", "description": "Retail price" },
+        "imageUrls": { "type": "array", "items": { "type": "string" }, "description": "Product images or render links" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server timestamp of creation" },
+        "createdBy": { "type": "string", "description": "User ID of the manager" }
+      },
+      "required": ["title", "description", "stock", "ean", "price", "imageUrls", "createdAt", "createdBy"]
     }
   },
   "firestore": {
@@ -33,6 +49,10 @@
     "admins": {
       "schema": "Admin",
       "description": "Whitelist of admin users"
+    },
+    "products": {
+      "schema": "Product",
+      "description": "Collection of ecommerce products for stock and sales"
     }
   }
 }
