@@ -61,7 +61,7 @@ service cloud.firestore {
                data.title is string && data.title.size() <= 200 &&
                data.description is string && data.description.size() <= 5000 &&
                data.stock is int && data.stock >= 0 &&
-               (data.price is int || data.price is float) && data.price >= 0 &&
+               data.price is number && data.price >= 0 &&
                data.ean is string && data.ean.size() <= 64 &&
                data.imageUrls is list && data.imageUrls.size() <= 15 &&
                (
