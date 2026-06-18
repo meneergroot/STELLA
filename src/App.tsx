@@ -22,7 +22,8 @@ import {
   Camera,
   Video,
   Eye,
-  Search
+  Search,
+  ExternalLink
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { 
@@ -48,6 +49,7 @@ import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { Navbar } from "./components/Navbar";
 import ShopPage from "./components/ShopPage";
 import ProductDetailPage from "./components/ProductDetailPage";
+import LightboxModal from "./components/LightboxModal";
 
 
 interface HeroProps {
@@ -318,9 +320,10 @@ const STATIC_DRONE_PROJECTS = [
 interface DroneFootageHeroSectionProps {
   searchKeyword: string;
   setSearchKeyword: (val: string) => void;
+  onProjectSelect: (project: any) => void;
 }
 
-const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword }: DroneFootageHeroSectionProps) => {
+const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword, onProjectSelect }: DroneFootageHeroSectionProps) => {
   const { t, language } = useLanguage();
   const [dbDrones, setDbDrones] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -455,11 +458,17 @@ const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword }: DroneFoota
                 className="bg-nt-charcoal/40 p-5 border border-nt-charcoal rounded-2xl flex flex-col justify-between group h-full relative"
               >
                 <div>
-                  <a 
-                    href={video.videoUrl.includes("http") ? video.videoUrl : `https://www.youtube.com/watch?v=${video.videoUrl}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative block overflow-hidden rounded-xl bg-nt-black mb-5 aspect-video"
+                  <div 
+                    onClick={() => onProjectSelect({
+                      id: video.id,
+                      title: getTranslatedTitle(video.id, video.title),
+                      description: video.description ? getTranslatedDesc(video.id, video.description) : "",
+                      videoUrl: video.videoUrl,
+                      thumbnail: video.thumbnail,
+                      createdAt: video.createdAt,
+                      type: 'drone'
+                    })}
+                    className="relative block overflow-hidden rounded-xl bg-nt-black mb-5 aspect-video cursor-pointer"
                   >
                     <img 
                       src={getYouTubeThumbnail(video.videoUrl, video.thumbnail)} 
@@ -479,10 +488,21 @@ const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword }: DroneFoota
                         <Play size={18} className="fill-nt-black ml-0.5" />
                       </div>
                     </div>
-                  </a>
+                  </div>
 
                   <div className="px-1">
-                    <h3 className="text-nt-white font-display font-medium text-sm tracking-tight leading-snug group-hover:text-nt-red transition-colors line-clamp-2 uppercase">
+                    <h3 
+                      onClick={() => onProjectSelect({
+                        id: video.id,
+                        title: getTranslatedTitle(video.id, video.title),
+                        description: video.description ? getTranslatedDesc(video.id, video.description) : "",
+                        videoUrl: video.videoUrl,
+                        thumbnail: video.thumbnail,
+                        createdAt: video.createdAt,
+                        type: 'drone'
+                      })}
+                      className="text-nt-white font-display font-medium text-sm tracking-tight leading-snug hover:text-nt-red transition-colors line-clamp-2 uppercase cursor-pointer"
+                    >
                       {getTranslatedTitle(video.id, video.title)}
                     </h3>
                     {video.description && (
@@ -509,9 +529,10 @@ const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword }: DroneFoota
 
 interface WebPortalsSectionProps {
   searchKeyword: string;
+  onProjectSelect: (project: any) => void;
 }
 
-const WebPortalsSection = ({ searchKeyword }: WebPortalsSectionProps) => {
+const WebPortalsSection = ({ searchKeyword, onProjectSelect }: WebPortalsSectionProps) => {
   const { t, language } = useLanguage();
   const [videos, setVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -610,11 +631,17 @@ const WebPortalsSection = ({ searchKeyword }: WebPortalsSectionProps) => {
                 className="bg-nt-white p-4 border border-nt-light-gray rounded-xl flex flex-col justify-between group h-full relative"
               >
                 <div>
-                  <a 
-                    href={video.videoUrl.includes("http") ? video.videoUrl : `https://www.youtube.com/watch?v=${video.videoUrl}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative block overflow-hidden rounded bg-nt-black mb-4 aspect-video"
+                  <div 
+                    onClick={() => onProjectSelect({
+                      id: video.id,
+                      title: getTranslatedTitle(video.id, video.title),
+                      description: video.description ? getTranslatedDesc(video.id, video.description) : "",
+                      videoUrl: video.videoUrl,
+                      thumbnail: video.thumbnail,
+                      createdAt: video.createdAt,
+                      type: 'web'
+                    })}
+                    className="relative block overflow-hidden rounded bg-nt-black mb-4 aspect-video cursor-pointer"
                   >
                     <img 
                       src={getYouTubeThumbnail(video.videoUrl, video.thumbnail)} 
@@ -634,11 +661,22 @@ const WebPortalsSection = ({ searchKeyword }: WebPortalsSectionProps) => {
                         <Play size={18} className="fill-nt-black ml-0.5" />
                       </div>
                     </div>
-                  </a>
+                  </div>
 
                   {/* Info block */}
                   <div className="px-1">
-                    <h3 className="text-nt-black font-display font-medium text-sm tracking-tight leading-snug group-hover:text-nt-red transition-colors line-clamp-2 uppercase">
+                    <h3 
+                      onClick={() => onProjectSelect({
+                        id: video.id,
+                        title: getTranslatedTitle(video.id, video.title),
+                        description: video.description ? getTranslatedDesc(video.id, video.description) : "",
+                        videoUrl: video.videoUrl,
+                        thumbnail: video.thumbnail,
+                        createdAt: video.createdAt,
+                        type: 'web'
+                      })}
+                      className="text-nt-black font-display font-medium text-sm tracking-tight leading-snug hover:text-nt-red transition-colors line-clamp-2 uppercase cursor-pointer"
+                    >
                       {getTranslatedTitle(video.id, video.title)}
                     </h3>
                     {video.description && (
@@ -665,6 +703,7 @@ const WebPortalsSection = ({ searchKeyword }: WebPortalsSectionProps) => {
 const MainSite = () => {
   const { t } = useLanguage();
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   return (
     <>
@@ -672,8 +711,15 @@ const MainSite = () => {
       <main>
         <Hero />
         <Features />
-        <DroneFootageHeroSection searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
-        <WebPortalsSection searchKeyword={searchKeyword} />
+        <DroneFootageHeroSection 
+          searchKeyword={searchKeyword} 
+          setSearchKeyword={setSearchKeyword} 
+          onProjectSelect={setSelectedProject} 
+        />
+        <WebPortalsSection 
+          searchKeyword={searchKeyword} 
+          onProjectSelect={setSelectedProject} 
+        />
         
         {/* High impact industrial Nothing CTA */}
         <section className="py-20 px-6 bg-nt-white relative overflow-hidden">
@@ -704,6 +750,7 @@ const MainSite = () => {
         </section>
       </main>
       <Footer />
+      <LightboxModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );
 };

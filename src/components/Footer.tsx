@@ -118,8 +118,8 @@ const Footer = () => {
         <div className="border-t border-nt-charcoal pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] font-mono text-nt-gray">
           <p>© 2026 STELLA MONTIS. ALL RIGHTS RESERVED. DESIGN INSPIRED BY NOTHING (R)</p>
           <div className="flex gap-6">
-            <Link to="/legal/privacybeleid" className="hover:text-nt-white transition-all uppercase tracking-wider">{t.footer_privacy}</Link>
-            <Link to="/legal/servicevoorwaarden" className="hover:text-nt-white transition-all uppercase tracking-wider">{t.footer_terms}</Link>
+            <Link to="/legal/privacypolicy" className="hover:text-nt-white transition-all uppercase tracking-wider">{t.footer_privacy}</Link>
+            <Link to="/legal/termsofservice" className="hover:text-nt-white transition-all uppercase tracking-wider">{t.footer_terms}</Link>
             <Link to="/admin" className="hover:text-nt-white transition-all flex items-center gap-1 uppercase tracking-wider">
               <Lock size={10} /> {t.nav_admin}
             </Link>

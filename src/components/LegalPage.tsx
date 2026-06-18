@@ -6,7 +6,7 @@ import Footer from './Footer';
 import { useLanguage } from '../context/LanguageContext';
 
 const EN_legalContent: Record<string, { title: string; content: React.ReactNode }> = {
-  'privacybeleid': {
+  'privacypolicy': {
     title: 'Privacy Policy',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
@@ -44,7 +44,7 @@ const EN_legalContent: Record<string, { title: string; content: React.ReactNode 
       </div>
     )
   },
-  'servicevoorwaarden': {
+  'termsofservice': {
     title: 'Terms of Service',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
@@ -80,7 +80,7 @@ const EN_legalContent: Record<string, { title: string; content: React.ReactNode 
 };
 
 const NL_legalContent: Record<string, { title: string; content: React.ReactNode }> = {
-  'privacybeleid': {
+  'privacypolicy': {
     title: 'Privacybeleid',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
@@ -118,7 +118,7 @@ const NL_legalContent: Record<string, { title: string; content: React.ReactNode 
       </div>
     )
   },
-  'servicevoorwaarden': {
+  'termsofservice': {
     title: 'Servicevoorwaarden',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
@@ -154,7 +154,7 @@ const NL_legalContent: Record<string, { title: string; content: React.ReactNode 
 };
 
 const DE_legalContent: Record<string, { title: string; content: React.ReactNode }> = {
-  'privacybeleid': {
+  'privacypolicy': {
     title: 'Datenschutzerklärung',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
@@ -192,7 +192,7 @@ const DE_legalContent: Record<string, { title: string; content: React.ReactNode 
       </div>
     )
   },
-  'servicevoorwaarden': {
+  'termsofservice': {
     title: 'Nutzungsbedingungen',
     content: (
       <div className="space-y-6 text-xs font-mono text-nt-gray leading-relaxed uppercase">
