@@ -21,7 +21,8 @@ import {
   Code,
   Camera,
   Video,
-  Eye
+  Eye,
+  Search
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { 
@@ -314,7 +315,12 @@ const STATIC_DRONE_PROJECTS = [
   }
 ];
 
-const DroneFootageHeroSection = () => {
+interface DroneFootageHeroSectionProps {
+  searchKeyword: string;
+  setSearchKeyword: (val: string) => void;
+}
+
+const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword }: DroneFootageHeroSectionProps) => {
   const { t, language } = useLanguage();
   const [dbDrones, setDbDrones] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -364,6 +370,14 @@ const DroneFootageHeroSection = () => {
     ? "Atemberaubende 4K/8K cineastische Luftbildaufnahmen und industrielle Drohnen-Inspektionen. Zertifiziert für kontrollierte CTR-Lufträume, Stadtgebiete und Nachtflüge."
     : "Breathtaking 4K/8K cinematic aerial photography and industrial mapping. Fully certified with CTR airspace clearances, urban permits, and official night flight authorizations.";
 
+  const filteredDrones = allDrones.filter(video => {
+    if (!searchKeyword) return true;
+    const term = searchKeyword.toLowerCase();
+    const title = getTranslatedTitle(video.id, video.title).toLowerCase();
+    const desc = (video.description ? getTranslatedDesc(video.id, video.description) : "").toLowerCase();
+    return title.includes(term) || desc.includes(term);
+  });
+
   return (
     <section id="drone-footage-hero" className="py-20 px-6 bg-nt-black text-nt-white relative overflow-hidden nt-dot-grid-dark border-b border-nt-charcoal animate-fade-in">
       <div className="max-w-7xl mx-auto">
@@ -399,70 +413,106 @@ const DroneFootageHeroSection = () => {
           </div>
         </div>
 
-        {/* Cinematic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allDrones.map((video) => (
-            <motion.div 
-              key={video.id}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ y: -4 }}
-              className="bg-nt-charcoal/40 p-5 border border-nt-charcoal rounded-2xl flex flex-col justify-between group h-full relative"
+        {/* Unified Search Bar with premium design */}
+        <div className="mb-14 max-w-xl mx-auto relative font-mono text-xs" id="portfolio-search-box">
+          <span className="absolute inset-y-0 left-4 flex items-center text-nt-gray pointer-events-none">
+            <Search size={15} />
+          </span>
+          <input
+            type="text"
+            placeholder={isNl ? "ZOEK IN PORTFOLIO (DRONE / WEB)..." : isDe ? "PORTFOLIO DURCHSUCHEN (DROHNE / WEB)..." : "SEARCH PORTFOLIO (DRONE / WEB)..."}
+            value={searchKeyword}
+            onChange={(e) => setSearchKeyword(e.target.value)}
+            className="w-full bg-nt-charcoal/30 border border-nt-charcoal hover:border-nt-gray/60 focus:border-nt-red px-11 py-3.5 rounded-xl text-xs text-nt-white placeholder-nt-gray transition-all tracking-wider outline-none shadow-inner"
+            id="portfolio-search-input"
+          />
+          {searchKeyword && (
+            <button
+              onClick={() => setSearchKeyword("")}
+              className="absolute inset-y-0 right-4 flex items-center text-nt-red hover:text-nt-white transition-colors uppercase font-bold text-[10.5px] tracking-wider cursor-pointer font-mono"
+              id="portfolio-search-clear"
             >
-              <div>
-                <a 
-                  href={video.videoUrl.includes("http") ? video.videoUrl : `https://www.youtube.com/watch?v=${video.videoUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block overflow-hidden rounded-xl bg-nt-black mb-5 aspect-video"
-                >
-                  <img 
-                    src={getYouTubeThumbnail(video.videoUrl, video.thumbnail)} 
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).onerror = null;
-                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=600";
-                    }}
-                    className="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-700"
-                    alt={getTranslatedTitle(video.id, video.title)}
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-transparent group-hover:bg-nt-red/10 transition-colors pointer-events-none" />
-                  
-                  {/* Play Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                    <div className="w-12 h-12 bg-nt-white rounded-full flex items-center justify-center text-nt-black shadow-lg">
-                      <Play size={18} className="fill-nt-black ml-0.5" />
-                    </div>
-                  </div>
-                </a>
-
-                <div className="px-1">
-                  <h3 className="text-nt-white font-display font-medium text-sm tracking-tight leading-snug group-hover:text-nt-red transition-colors line-clamp-2 uppercase">
-                    {getTranslatedTitle(video.id, video.title)}
-                  </h3>
-                  {video.description && (
-                    <p className="text-[11px] font-mono text-nt-gray mt-2.5 leading-relaxed uppercase">
-                      {getTranslatedDesc(video.id, video.description)}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="px-1 border-t border-nt-charcoal mt-5 pt-3 flex justify-between items-center text-[10px] font-mono text-nt-gray">
-                <span>REEL_ID: {video.id.substr(0, 6).toUpperCase()}</span>
-                <span>{video.createdAt?.toDate ? video.createdAt.toDate().toLocaleDateString() : '01.01.2026'}</span>
-              </div>
-            </motion.div>
-          ))}
+              [CLEAR / RESET]
+            </button>
+          )}
         </div>
+
+        {/* Cinematic Grid */}
+        {filteredDrones.length === 0 ? (
+          <div className="text-center py-16 border border-dashed border-nt-charcoal rounded-2xl p-6 bg-nt-charcoal/10" id="drone-no-projects">
+            <p className="font-mono text-xs text-nt-gray uppercase tracking-widest">
+              {isNl ? "Geen drone items gevonden die voldoen aan het trefwoord." : isDe ? "Keine Drohnenelemente für dieses Schlüsselwort gefunden." : "No drone items match the specified keyword."}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredDrones.map((video) => (
+              <motion.div 
+                key={video.id}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -4 }}
+                className="bg-nt-charcoal/40 p-5 border border-nt-charcoal rounded-2xl flex flex-col justify-between group h-full relative"
+              >
+                <div>
+                  <a 
+                    href={video.videoUrl.includes("http") ? video.videoUrl : `https://www.youtube.com/watch?v=${video.videoUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block overflow-hidden rounded-xl bg-nt-black mb-5 aspect-video"
+                  >
+                    <img 
+                      src={getYouTubeThumbnail(video.videoUrl, video.thumbnail)} 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).onerror = null;
+                        (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=600";
+                      }}
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-100 transition-opacity duration-700"
+                      alt={getTranslatedTitle(video.id, video.title)}
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-transparent group-hover:bg-nt-red/10 transition-colors pointer-events-none" />
+                    
+                    {/* Play Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                      <div className="w-12 h-12 bg-nt-white rounded-full flex items-center justify-center text-nt-black shadow-lg">
+                        <Play size={18} className="fill-nt-black ml-0.5" />
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="px-1">
+                    <h3 className="text-nt-white font-display font-medium text-sm tracking-tight leading-snug group-hover:text-nt-red transition-colors line-clamp-2 uppercase">
+                      {getTranslatedTitle(video.id, video.title)}
+                    </h3>
+                    {video.description && (
+                      <p className="text-[11px] font-mono text-nt-gray mt-2.5 leading-relaxed uppercase">
+                        {getTranslatedDesc(video.id, video.description)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="px-1 border-t border-nt-charcoal mt-5 pt-3 flex justify-between items-center text-[10px] font-mono text-nt-gray">
+                  <span>REEL_ID: {video.id.substr(0, 6).toUpperCase()}</span>
+                  <span>{video.createdAt?.toDate ? video.createdAt.toDate().toLocaleDateString() : '01.01.2026'}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
       </div>
     </section>
   );
 };
 
-const WebPortalsSection = () => {
-  const { t } = useLanguage();
+interface WebPortalsSectionProps {
+  searchKeyword: string;
+}
+
+const WebPortalsSection = ({ searchKeyword }: WebPortalsSectionProps) => {
+  const { t, language } = useLanguage();
   const [videos, setVideos] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -505,6 +555,17 @@ const WebPortalsSection = () => {
     }
   };
 
+  const isNl = language === 'nl';
+  const isDe = language === 'de';
+
+  const filteredWebProjects = webProjects.filter(video => {
+    if (!searchKeyword) return true;
+    const term = searchKeyword.toLowerCase();
+    const title = getTranslatedTitle(video.id, video.title).toLowerCase();
+    const desc = (video.description ? getTranslatedDesc(video.id, video.description) : "").toLowerCase();
+    return title.includes(term) || desc.includes(term);
+  });
+
   return (
     <section id="web-portals" className="py-20 px-6 bg-nt-bg border-b border-nt-light-gray relative">
       <div className="max-w-7xl mx-auto">
@@ -532,9 +593,15 @@ const WebPortalsSection = () => {
               </div>
             ))}
           </div>
+        ) : filteredWebProjects.length === 0 ? (
+          <div className="text-center py-16 border border-dashed border-nt-light-gray rounded-2xl p-6 bg-nt-white/50" id="web-no-projects">
+            <p className="font-mono text-xs text-nt-gray uppercase tracking-widest">
+              {isNl ? "Geen webprojecten gevonden die voldoen aan het trefwoord." : isDe ? "Keine Webprojekte für dieses Schlüsselwort gefunden." : "No web projects match the specified keyword."}
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {webProjects.map((video) => (
+            {filteredWebProjects.map((video) => (
               <motion.div 
                 key={video.id}
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -597,6 +664,7 @@ const WebPortalsSection = () => {
 
 const MainSite = () => {
   const { t } = useLanguage();
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   return (
     <>
@@ -604,8 +672,8 @@ const MainSite = () => {
       <main>
         <Hero />
         <Features />
-        <DroneFootageHeroSection />
-        <WebPortalsSection />
+        <DroneFootageHeroSection searchKeyword={searchKeyword} setSearchKeyword={setSearchKeyword} />
+        <WebPortalsSection searchKeyword={searchKeyword} />
         
         {/* High impact industrial Nothing CTA */}
         <section className="py-20 px-6 bg-nt-white relative overflow-hidden">
