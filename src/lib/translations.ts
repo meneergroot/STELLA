@@ -7,8 +7,7 @@ export interface TranslationSection {
   nav_get_started: string;
   nav_websites: string;
   nav_apps: string;
-  nav_drone_photo: string;
-  nav_drone_video: string;
+  nav_droneography: string;
   
   hero_tag: string;
   hero_title_first: string;
@@ -67,8 +66,7 @@ export interface TranslationSection {
   footer_websites: string;
   footer_apps: string;
   footer_ai: string;
-  footer_drone_photo: string;
-  footer_drone_video: string;
+  footer_droneography: string;
   footer_newsletter_title: string;
   footer_newsletter_desc: string;
   footer_privacy: string;
@@ -100,8 +98,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_get_started: "Get Started",
     nav_websites: "Websites",
     nav_apps: "Apps",
-    nav_drone_photo: "Drone Photography",
-    nav_drone_video: "Drone Videography",
+    nav_droneography: "Droneography",
     
     hero_tag: "[AI_STUDIO_SDK_STABLE]",
     hero_title_first: "STELLA",
@@ -111,22 +108,22 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     hero_view_codebases_copied: "COPIED!",
     
     features_tag: "[02_DIAG_OVERVIEW]",
-    features_title: "CINEMATIC AND ",
-    features_title_red: "DIGITAL DEV PRECISION",
-    features_desc: "From stunning high-density aerial footage to fully compiled native mobile apps and secure responsive web backbones, we design state-of-the-art internet architectures.",
+    features_title: "HIGH-PERFORMANCE ",
+    features_title_red: "WEB & SOFTWARE ARCHITECTURE",
+    features_desc: "We engineer lightning-fast web systems, robust cloud backbones, and native mobile apps with absolute type safety—backed by professional droneography for high-density brand content.",
     
-    feature_1_title: "AERIAL CINEMATOGRAPHY",
-    feature_1_desc: "UHD drone videography and high-contrast orthomosaics featuring lawful, certified flights with alpine and coastal tracking capabilities.",
-    feature_2_title: "WEB DEV PORTALS",
-    feature_2_desc: "Tailored responsive portals, custom frontend systems, and full-stack cloud ecosystems developed with React and Vite for sub-second load times.",
+    feature_1_title: "WEB DEV PORTALS",
+    feature_1_desc: "Tailored responsive portals, custom frontend systems, and full-stack cloud ecosystems developed with React and Vite for sub-second load times.",
+    feature_2_title: "CLOUD & DATABASE INFRASTRUCTURE",
+    feature_2_desc: "Robust Firebase integrations, secure Firestore rules, and auto-scaling Cloud Run server systems designed to handle immense peak volumes.",
     feature_3_title: "NATIVE MOBILE APPS",
     feature_3_desc: "Performant, compile-verified Android & iOS applications engineered with native Kotlin/Swift and sleek Jetpack Compose components.",
-    feature_4_title: "DYNAMIC FPV TRACKING",
-    feature_4_desc: "High-speed outdoor action videography and cinewhoop FPV tracking shots featuring specialized cold-weather battery calibrations.",
-    feature_5_title: "POST-PRODUCTION WORKFLOWS",
-    feature_5_desc: "Deliberate color grading (D-Log/HDR), stabilizing algorithms, and precise multi-track splicing configured for ultimate cinematic texture.",
-    feature_6_title: "CLOUD DATA ARCHITECTURES",
-    feature_6_desc: "Comprehensive Firebase Auth validations, robust Firestore schema rules, and secure Cloud Run scaling designed for heavy peak volumes.",
+    feature_4_title: "AI STUDIO INTEGRATION",
+    feature_4_desc: "Unlock specialized generative pipelines, intelligent content processing, and machine learning models running server-side with Google GenAI SDK.",
+    feature_5_title: "E-COMMERCE & TRANSACTION SECURITY",
+    feature_5_desc: "Developed with secure local cookies, payment environments, client authorizations, and custom digital storefront layouts.",
+    feature_6_title: "DRONEOGRAPHY ASSETS",
+    feature_6_desc: "Lawful, certified high-resolution 4K/8K aerial photography and video capture to fuel stunning web and cinematic brand aesthetics.",
 
     stream_tag: "[04_STREAM_OPERATIONS]",
     stream_title: "STREAMING AND INTERACTIVE OVERLAYS",
@@ -160,8 +157,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     footer_websites: "Websites",
     footer_apps: "Android Apps",
     footer_ai: "AI & Software",
-    footer_drone_photo: "Drone Photography",
-    footer_drone_video: "Drone Videography",
+    footer_droneography: "Droneography",
     footer_newsletter_title: "DEV_LOGS",
     footer_newsletter_desc: "Subscribe to our engineering newsletters and system release archives.",
     footer_privacy: "Privacy Policy",
@@ -190,8 +186,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_get_started: "Begin direct",
     nav_websites: "Websites",
     nav_apps: "Apps",
-    nav_drone_photo: "Drone Fotografie",
-    nav_drone_video: "Drone Videografie",
+    nav_droneography: "Droneografie",
     
     hero_tag: "[AI_STUDIO_SDK_STABLE]",
     hero_title_first: "STELLA",
@@ -201,22 +196,22 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     hero_view_codebases_copied: "GEKOPIEERD!",
     
     features_tag: "[02_DIAG_OVERVIEW]",
-    features_title: "CINEMATISCHE EN ",
-    features_title_red: "DIGITALE DEV PRECISIE",
-    features_desc: "Van adembenemende high-density dronebeelden tot volledig gecompileerde native mobiele apps en beveiligde, mobielvriendelijke websystemen; wij ontwerpen state-of-the-art internetarchitecturen.",
+    features_title: "HOOGWAARDIGE ",
+    features_title_red: "WEB- EN SOFTWAREARCHITECTUUR",
+    features_desc: "Wij bouwen razendsnelle websystemen, robuuste cloud-infrastructuren en native mobiele apps met absolute type-veiligheid—ondersteund met professionele droneografie voor hoogwaardige achtergrondbeelden.",
     
-    feature_1_title: "LUCHT-CINEMATOGRAFIE",
-    feature_1_desc: "UHD drone-videografie en orthomozaïsche kaarten met gecertificeerde en legale vluchten over diverse terreinen en kustlijnen.",
-    feature_2_title: "WEB ONTWIKKELING",
-    feature_2_desc: "Op maat gemaakte responsieve portalen, frontend-systemen en full-stack cloudomgevingen ontwikkeld met React en Vite voor ongekende snelheden.",
+    feature_1_title: "WEB ONTWIKKELING",
+    feature_1_desc: "Op maat gemaakte responsieve portalen, frontend-systemen en full-stack cloudomgevingen ontwikkeld met React en Vite voor ongekende snelheden.",
+    feature_2_title: "CLOUD & DATABASE INFRASTRUCTUUR",
+    feature_2_desc: "Robuuste Firebase-integraties, beveiligde Firestore-regels en automatisch schalende Cloud Run-servers ontworpen voor extreme piekbelastingen.",
     feature_3_title: "NATIVE MOBIELE APPS",
     feature_3_desc: "Prachtige, krachtige en geverifieerde Android- & iOS-apps geschreven in native Kotlin/Swift en gestyled met moderne Compose kaders.",
-    feature_4_title: "DYNAMISCHE FPV-VOLGOPNAMES",
-    feature_4_desc: "Hogesnelheidsactie en cinewhoop FPV-volgopnames met gespecialiseerde sub-zero batterij-optimalisatie voor extreme omgevingen.",
-    feature_5_title: "NA-BEWERKING DIRECTIE",
-    feature_5_desc: "Nauwkeurige kleurcorrectie (D-Log/HDR), stabilisatie-algoritmen en professionele montage afgestemd op hoogwaardige texturen.",
-    feature_6_title: "CLOUD DATA ARCHITECTUREN",
-    feature_6_desc: "Uitgebreide Firebase Auth-validaties, Firestore-beveiligingsregels en geverifieerde Cloud Run-schaling ontworpen voor extreme piekbelastingen.",
+    feature_4_title: "AI STUDIO INTEGRATIE",
+    feature_4_desc: "Activeer intelligente tekst- en beeldbewerking, slimme filters of generatieve pipelines met de server-side Google GenAI SDK.",
+    feature_5_title: "E-COMMERCE & TRANSACTIONELE VEILIGHEID",
+    feature_5_desc: "Gebouwd met secure cookie-richtlijnen, veilige betaalomgevingen en op maat gemaakte digitale etalages.",
+    feature_6_title: "DRONEOGRAFIE BEELDEN",
+    feature_6_desc: "Gecertificeerde en legale luchtfotografie en 4K/8K video-opnames om uw websites te voorzien van adembenemende visuele merk-esthetiek.",
 
     stream_tag: "[04_STREAM_OPERATIONS]",
     stream_title: "STREAMING EN INTERACTIEVE OVERLAYS",
@@ -250,8 +245,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     footer_websites: "Websites",
     footer_apps: "Android Apps",
     footer_ai: "AI & Software",
-    footer_drone_photo: "Dronefotografie",
-    footer_drone_video: "Dronevideografie",
+    footer_droneography: "Droneografie",
     footer_newsletter_title: "DEV_LOGBOEKEN",
     footer_newsletter_desc: "Abonneer u op onze technische nieuwsbrieven en systeemarchieven.",
     footer_privacy: "Privacybeleid",
@@ -280,8 +274,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     nav_get_started: "Loslegen",
     nav_websites: "Websites",
     nav_apps: "Apps",
-    nav_drone_photo: "Drohnenfotografie",
-    nav_drone_video: "Drohnenvideografie",
+    nav_droneography: "Drohnenaufnahmen",
     
     hero_tag: "[AI_STUDIO_SDK_STABLE]",
     hero_title_first: "STELLA",
@@ -291,22 +284,22 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     hero_view_codebases_copied: "KOPIERT!",
     
     features_tag: "[02_DIAG_OVERVIEW]",
-    features_title: "KINEMATISCHE UND ",
-    features_title_red: "DIGITALE DEV-PRÄZISION",
-    features_desc: "Von atemberaubenden, hochauflösenden Drohnenaufnahmen bis hin zu vollständig kompilierten nativen mobilen Apps und robusten Websystemen – wir entwerfen modernste Internetarchitekturen.",
+    features_title: "HOCHLEISTUNGS- ",
+    features_title_red: "WEB- UND SOFTWAREDESIGN",
+    features_desc: "Wir entwickeln blitzschnelle Websysteme, robuste Cloud-Backbones und native mobile Apps mit absoluter Typsicherheit – unterstützt durch professionelle Drohnenaufnahmen für hochauflösende Hintergründe.",
     
-    feature_1_title: "LUFTBILD-KINEMATOGRAFIE",
-    feature_1_desc: "UHD-Drohnenvideografie und kontrastreiche Orthofotos mit zertifizierten, legalen Flügen in anspruchsvollem Alpin- und Küstengelände.",
-    feature_2_title: "WEB-ENTWICKLUNG",
-    feature_2_desc: "Maßgeschneiderte responsive Portale, Frontend-Systeme und Full-Stack-Cloud-Ökosysteme, entwickelt mit React und Vite für sofortige Ladezeiten.",
+    feature_1_title: "WEB-ENTWICKLUNG",
+    feature_1_desc: "Maßgeschneiderte responsive Portale, Frontend-Systeme und Full-Stack-Cloud-Ökosysteme, entwickelt mit React und Vite für sofortige Ladezeiten.",
+    feature_2_title: "CLOUD- & DATENBANKINFRASTRUKTUR",
+    feature_2_desc: "Umfassende Firebase-Validierungen, robuste Firestore-Regelstrukturen und sichere Cloud-Run-Skalierung für anspruchsvolle Peak-Lasten.",
     feature_3_title: "NATIVE MOBILE APPS",
     feature_3_desc: "Leistungsstarke, compiliergeprüfte Android- & iOS-Anwendungen, entwickelt mit nativem Kotlin/Swift und modernen Compose-Layouts.",
-    feature_4_title: "DYNAMISCHES FPV-TRACKING",
-    feature_4_desc: "Schnelle Outdoor-Action-Videografie und agile Cinewhoop-FPV-Aufnahmen mit speziellen Kälte-Akku-Kalibrierungen.",
-    feature_5_title: "POSTPRODUKTIONS-WORKFLOWS",
-    feature_5_desc: "Präzises Color Grading (D-Log/HDR), Stabilisierungsalgorithmen und professioneller Videoschnitt für ein ultimatives kinoreifes Erlebnis.",
-    feature_6_title: "CLOUD-DATENARCHITEKTUREN",
-    feature_6_desc: "Umfassende Firebase-Auth-Validierungen, robuste Firestore-Regelstrukturen und sichere Cloud-Run-Skalierung für anspruchsvolle Peak-Lasten.",
+    feature_4_title: "AI STUDIO INTEGRATION",
+    feature_4_desc: "Integrieren Sie intelligente KI-Suchfunktionen, automatisierte Assistenten und dynamische Routen mit dem Google AI Studio SDK.",
+    feature_5_title: "E-COMMERCE & TRANSAKTIONSSICHERHEIT",
+    feature_5_desc: "Entwickelt mit sicheren Cookie-Richtlinien, verifizierten Zahlungsumgebungen und benutzerdefinierten digitalen Schaufenster-Layouts.",
+    feature_6_title: "DROHNENAUFNAHMEN-ASSETS",
+    feature_6_desc: "Rechtmäßige, zertifizierte, hochauflösende 4K/8K-Luftaufnahmen zur Untermalung einer atemberaubenden visuellen Markenästhetik.",
 
     stream_tag: "[04_STREAM_OPERATIONS]",
     stream_title: "STREAMING UND INTERAKTIVE OVERLAYS",
@@ -340,8 +333,7 @@ export const translations: Record<'en' | 'nl' | 'de', TranslationSection> = {
     footer_websites: "Websites",
     footer_apps: "Android-Apps",
     footer_ai: "KI & Software",
-    footer_drone_photo: "Drohnenfotografie",
-    footer_drone_video: "Drohnenvideografie",
+    footer_droneography: "Drohnenaufnahmen",
     footer_newsletter_title: "DEV_LOGS",
     footer_newsletter_desc: "Abonnieren Sie unsere technischen Newsletter und System-Release-Archive.",
     footer_privacy: "Datenschutzrichtlinie",
@@ -408,24 +400,14 @@ export const servicesTranslations: Record<'en' | 'nl' | 'de', Record<string, Ser
         { title: "Real-time Synchronization", desc: "Low-latency WebSocket tunnels and Firestore listeners distributing updates across thousands of client sessions instantly." }
       ]
     },
-    'drone-photography': {
-      title: "Drone Photography",
-      subtitle: "Certified Aerial Photography & CTR Exemptions",
-      desc: "Professional high-resolution aerial imaging for real estate, commercial marketing, and industrial installations. Thanks to our unique airspace clearances and operational certificates, we can fly where others cannot—including controlled airspace (CTR) and airport zones. We handle all paperwork.",
+    'droneography': {
+      title: "Droneography",
+      subtitle: "Certified Aerial Cinematography, Photography & CTR Exemptions",
+      desc: "Professional high-resolution aerial imaging and cinematic video capturing for real estate, commercial marketing, and industrial installations. Thanks to our unique airspace clearances and operational certificates, we fly lawfully and safely in controlled airspace (CTR), urban environments, and during night operations. We handle all paperwork and planning.",
       features: [
         { title: "CTR Airspace Clearance", desc: "Leveraging our advanced certifications, we fly lawfully and safely in controlled airspace (CTR). We manage all permits and communication with air traffic controllers." },
         { title: "High-Resolution Sensors", desc: "With professional-grade imaging sensors, we capture sharp detail files. Excellent for construction timelines, visual marketing campaigns, or site audits." },
-        { title: "Rapid Deployments", desc: "We remain on standby for flexible setups. As soon as the ideal clear skies occur, we initiate certified flight procedures." }
-      ]
-    },
-    'drone-videography': {
-      title: "Drone Videography",
-      subtitle: "Cinematic Dynamic Motion & Night Operations",
-      desc: "Stunning 4K and 8K cinematic capture sequences for promotional campaigns, documentaries, and assets. Certified for special night flight operations (dark capture) and complex urban layout flight procedures.",
-      features: [
-        { title: "Certified Night Operations", desc: "One of the few operators certified for flights in twilight and darkness. Produce atmospheric video assets of illuminated skylines, night events, or midnight logistics." },
-        { title: "FPV & Cinema Rigs", desc: "We fly heavy cinematic setups for maximum camera stability alongside customized agile FPV (First Person View) setups for indoor pursuits and high-velocity pacing." },
-        { title: "Professional Post-Production", desc: "Assets delivered in high-grade 10-bit log profiles, ready for precise color grading. We also deliver turn-key edits including sound design." }
+        { title: "Cinematic Night Operations", desc: "One of the few operators certified for flights in twilight and darkness. Produce atmospheric video assets of illuminated skylines, night events, or midnight logistics." }
       ]
     }
   },
@@ -460,24 +442,14 @@ export const servicesTranslations: Record<'en' | 'nl' | 'de', Record<string, Ser
         { title: "Real-time synchronisatie", desc: "Snel websockettunnels en actieve Firestore-luisteraars die updates direct distribueren naar duizenden sessies." }
       ]
     },
-    'drone-photography': {
-      title: "Dronefotografie",
-      subtitle: "Gecertificeerde Luchtopnames & CTR Ontheffingen",
-      desc: "Professionele luchtfoto's in hoge resolutie voor vastgoed, commerciële promotie en industriële inspectie. Dankzij onze unieke vliegbewijzen en operationele licenties vliegen we waar anderen niet mogen, inclusief gecontroleerde luchtruimen (CTR) en luchthavenzones. Wij regelen alle ontheffingen.",
+    'droneography': {
+      title: "Droneografie",
+      subtitle: "Gecertificeerde Luchtopnames, Cinematografie & CTR Ontheffingen",
+      desc: "Professionele luchtfoto's in hoge resolutie en cinematografische video-opnames voor vastgoed, commerciële promotie en industriële inspectie. Dankzij onze unieke vliegbewijzen en operationele licenties vliegen we legaal en veilig in gecontroleerde luchtruimen (CTR), boven bebouwing en tijdens nachtvluchten. Wij regelen alle ontheffingen en planning.",
       features: [
         { title: "CTR Luchtruim Ontheffing", desc: "Wij vliegen legaal en veilig in gecontroleerde zones rondom vliegvelden. Wij coördineren rechtstreeks met de luchtverkeersleiding." },
         { title: "Hoge Resolutie Sensoren", desc: "Voorzien van professionele camera's leggen we elk detail scherp vast voor bouwverslagen of marketing." },
-        { title: "Snelle Inzetbaarheid", desc: "Altijd paraat voor flexibele planningen. Zodra de ideale luchtomstandigheden optreden, stijgen we gecertificeerd op." }
-      ]
-    },
-    'drone-videography': {
-      title: "Dronevideografie",
-      subtitle: "Cinematografische Beweging & Nachtvluchten",
-      desc: "Schitterende 4K en 8K video-opnames voor promoties, documentaires en bedrijfsvideo's. Gecertificeerd voor nachtvluchten (opnames in het donker) en vliegen boven bebouwing.",
-      features: [
-        { title: "Gecertificeerde Nachtvluchten", desc: "Een van de weinige operators met toestemming voor vluchten bij diepe schemering en duisternis. Prachtige beelden van verlichte skylines." },
-        { title: "FPV & Cinema Rigs", desc: "Zware cinematografische drone-stabilisatie gecombineerd met snelle, wendbare FPV (First Person View) drones voor binnen- en buitenopnames." },
-        { title: "Professionele Nabewerking", desc: "Aangeleverd in vlakke 10-bit logprofielen, klaar voor kleurbewerking. Wij leveren ook kant-en-klare gemonteerde video's." }
+        { title: "Gecertificeerde Nachtvluchten", desc: "Een van de weinige operators met toestemming voor vluchten bij diepe schemering en duisternis. Prachtige beelden van verlichte skylines." }
       ]
     }
   },
@@ -512,24 +484,14 @@ export const servicesTranslations: Record<'en' | 'nl' | 'de', Record<string, Ser
         { title: "Echtzeit-Synchronisierung", desc: "WebSocket-Verbindungen und aktive Firestore-Listener für eine sofortige Datenverteilung an Tausende von Benutzern zeitgleich." }
       ]
     },
-    'drone-photography': {
-      title: "Drohnenfotografie",
-      subtitle: "Zertifizierte Luftbildaufnahmen & CTR-Freigaben",
-      desc: "Professionelle, hochauflösende Luftbildaufnahmen für Immobilien, Marketing und industrielle Anlagen. Dank unserer speziellen Luftraumzulassungen fliegen wir dort, wo andere es nicht dürfen – einschließlich kontrollierter Lufträume (CTR) und Flughafenzonen. Wir übernehmen den gesamten Papierkram.",
+    'droneography': {
+      title: "Drohnenaufnahmen",
+      subtitle: "Zertifizierte Luftbild-Kinematografie, Fotografie & CTR-Freigaben",
+      desc: "Professionelle hochauflösende Luftbildaufnahmen und filmische Drohnenvideografie für Immobilien, Marketing und Industrieanlagen. Dank unserer speziellen Luftraumzulassungen fliegen wir legal und sicher in kontrollierten Lufträumen (CTR), über städtischen Gebieten und bei Nacht. Wir übernehmen alle Genehmigungen und Formalitäten.",
       features: [
         { title: "CTR-Luftraumfreigabe", desc: "Dank unserer Zertifizierungen fliegen wir absolut legal und sicher in gesperrten Flughafenbereichen. Wir koordinieren direkt mit der Flugsicherung." },
         { title: "Hochauflösende Sensoren", desc: "Mit professionellen Kamerasystemen erfassen wir jedes Detail perfekt für Bautagebücher, Inspektionen oder Werbekampagnen." },
-        { title: "Flexible Einsatzbereitschaft", desc: "Jederzeit startbereit. Sobald die optimalen Wetterverhältnisse eintreten, führen wir den kontrollierten Flug termingetreu aus." }
-      ]
-    },
-    'drone-videography': {
-      title: "Drohnenvideografie",
-      subtitle: "Cinematische Bewegung & Nachtflüge",
-      desc: "Atemberaubende 4K- und 8K-Videosequenzen für Promotionen, Imagefilme und Dokumentationen. Zertifiziert für Nachtflüge (Aufnahmen bei Dunkelheit) und komplexe städtische Flugmanöver.",
-      features: [
-        { title: "Zertifizierter Nachtbetrieb", desc: "Als einer der wenigen Anbieter für Flüge bei Nacht zugelassen. Beeindruckende Aufnahmen beleuchteter Skylines oder nächtlicher Logistikparks." },
-        { title: "FPV & Cinema Rigs", desc: "Schwere Kinokameraplattformen für maximale Stabilität gepaart mit agilen FPV-Drohnen für spektakuläre Innen- und Außenaufnahmen." },
-        { title: "Professionelle Postproduktion", desc: "Lieferung in flachen 10-Bit log-Profilen für perfektes Color Grading. Auf Wunsch erhalten Sie den komplett fertig geschnittenen Film inklusive Musik." }
+        { title: "Zertifizierter Nachtbetrieb", desc: "Zugelassen für Flüge bei Nacht. Beeindruckende Aufnahmen beleuchteter Skylines, nächtlicher Events oder Logistikparks." }
       ]
     }
   }

@@ -52,8 +52,7 @@ export const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6 font-mono text-xs text-nt-gray" id="nav-desktop">
           <a href="/#web-portals" className="hover:text-nt-black transition-colors uppercase">{t.nav_websites}</a>
-          <Link to="/services/drone-photography" className="hover:text-nt-black transition-colors uppercase">{t.nav_drone_photo}</Link>
-          <Link to="/services/drone-videography" className="hover:text-nt-black transition-colors uppercase">{t.nav_drone_video}</Link>
+          <Link to="/services/droneography" className="hover:text-nt-black transition-colors uppercase">{t.nav_droneography}</Link>
           <Link to="/shop" className="hover:text-nt-red transition-colors uppercase font-bold border-b-2 border-transparent hover:border-nt-red px-1 py-0.5">{t.nav_shop}</Link>
           <Link to="/admin" className="hover:text-nt-black transition-colors flex items-center gap-1.5 uppercase">
             <Lock size={12} /> {t.nav_admin}
@@ -90,8 +89,7 @@ export const Navbar = () => {
           id="nav-mobile-menu"
         >
           <a href="/#web-portals" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>{t.nav_websites}</a>
-          <Link to="/services/drone-photography" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>{t.nav_drone_photo}</Link>
-          <Link to="/services/drone-videography" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>{t.nav_drone_video}</Link>
+          <Link to="/services/droneography" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>{t.nav_droneography}</Link>
           <Link to="/shop" className="text-nt-red font-bold uppercase tracking-widest py-1 border-b border-nt-bg" onClick={() => setIsOpen(false)}>{t.nav_shop}</Link>
           <Link to="/admin" className="text-nt-black font-bold uppercase tracking-widest py-1 border-b border-nt-bg flex items-center gap-2" onClick={() => setIsOpen(false)}>
             <Lock size={12} /> {t.nav_admin}

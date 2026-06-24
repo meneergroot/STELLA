@@ -78,15 +78,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services/drone-photography" className="text-nt-white hover:text-nt-red transition-colors flex items-center justify-between group">
-                  <span>{t.footer_drone_photo}</span>
+                <Link to="/services/droneography" className="text-nt-white hover:text-nt-red transition-colors flex items-center justify-between group">
+                  <span>{t.footer_droneography}</span>
                   <span className="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity">04</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/drone-videography" className="text-nt-white hover:text-nt-red transition-colors flex items-center justify-between group">
-                  <span>{t.footer_drone_video}</span>
-                  <span className="text-[9px] opacity-0 group-hover:opacity-100 transition-opacity">05</span>
                 </Link>
               </li>
             </ul>

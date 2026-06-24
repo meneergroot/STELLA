@@ -62,9 +62,68 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
   const first = parts[0];
   const rest = parts.slice(1).join(' ');
 
+  // Mouse tracking for parallax drift
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <section className="pt-40 pb-24 px-6 nt-dot-grid-light bg-nt-bg border-b border-nt-light-gray relative" id="hero-section">
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+    <section className="pt-40 pb-24 px-6 nt-dot-grid-light bg-nt-bg border-b border-nt-light-gray relative overflow-hidden" id="hero-section">
+      {/* Interactive Parallax Background Orbs */}
+      <motion.div 
+        animate={{ 
+          x: mousePos.x * -35,
+          y: mousePos.y * -35
+        }}
+        transition={{ type: "spring", damping: 30, stiffness: 80 }}
+        className="absolute top-12 left-10 w-[350px] h-[350px] bg-nt-red/8 rounded-full blur-[100px] pointer-events-none animate-float"
+      />
+      <motion.div 
+        animate={{ 
+          x: mousePos.x * 25,
+          y: mousePos.y * 25
+        }}
+        transition={{ type: "spring", damping: 35, stiffness: 70 }}
+        className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-nt-charcoal/5 rounded-full blur-[120px] pointer-events-none animate-float-reverse"
+      />
+
+      {/* Floating Minimalist HUD indicators */}
+      <motion.div
+        animate={{ 
+          x: mousePos.x * 12,
+          y: mousePos.y * 12
+        }}
+        className="hidden lg:block absolute top-36 left-24 font-mono text-[9px] text-nt-gray/40 select-none"
+      >
+        <span>SYS_STATUS: [STABLE_RUNNING]</span>
+      </motion.div>
+      <motion.div
+        animate={{ 
+          x: mousePos.x * -18,
+          y: mousePos.y * -18
+        }}
+        className="hidden lg:block absolute bottom-36 right-24 font-mono text-[9px] text-nt-gray/40 select-none"
+      >
+        <span>LATENCY: [0.002MS]</span>
+      </motion.div>
+      <motion.div
+        animate={{ 
+          x: mousePos.x * 8,
+          y: mousePos.y * 8
+        }}
+        className="hidden lg:block absolute top-44 right-32 font-mono text-[9px] text-nt-gray/40 select-none"
+      >
+        <span>+ CROSSHAIR_COORD_04</span>
+      </motion.div>
+
+      <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
         {/* Micro tag block */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -94,7 +153,7 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
         >
           <a 
             href="mailto:meneergroot@icloud.com"
-            className="bg-nt-black text-nt-white px-8 py-4 rounded hover:bg-nt-charcoal transition-all shadow flex items-center gap-2 font-bold uppercase tracking-wider text-sm"
+            className="bg-nt-black text-nt-white px-8 py-4 rounded hover:bg-nt-charcoal hover:scale-[1.02] active:scale-[0.98] transition-all shadow flex items-center gap-2 font-bold uppercase tracking-wider text-sm"
             id="hero-get-started-btn"
           >
             {t.nav_get_started} 
@@ -103,7 +162,7 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
           
           <a 
             href="#web-portals"
-            className="bg-nt-white text-nt-black border border-nt-light-gray px-8 py-4 rounded hover:bg-nt-bg transition-all flex items-center gap-2 font-bold uppercase tracking-wider text-sm"
+            className="bg-nt-white text-nt-black border border-nt-light-gray px-8 py-4 rounded hover:bg-nt-bg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2 font-bold uppercase tracking-wider text-sm"
             id="hero-portfolio-btn"
           >
             <Code size={14} className="text-nt-black" /> 
@@ -115,10 +174,36 @@ const Hero = ({ title = "STELLA MONTIS" }: HeroProps) => {
   );
 };
 
-const FeatureCard = ({ icon: Icon, title, desc, num }: any) => (
+const TechMarquee = () => {
+  const keywords = [
+    "COMPILE_SUCCESS", "TYPE-SAFE SOFTWARE", "FAST VITE RUNTIME", "CLOUD RUN CONTAINERS",
+    "SECURE FIRESTORE", "RESPONSIVE DEV PORTALS", "UHD DRONEOGRAPHY", "FPV TRACKING",
+    "MINIMAL DESIGN ETHOS", "SUB-SECOND LOAD TIME", "CUSTOM DESIGN SYSTEM"
+  ];
+  const items = [...keywords, ...keywords, ...keywords];
+  return (
+    <div className="w-full bg-nt-black text-nt-white py-3.5 border-y border-nt-charcoal overflow-hidden relative font-mono text-[10px] tracking-widest uppercase select-none z-20">
+      <div className="flex w-[300%] animate-marquee whitespace-nowrap gap-16 items-center">
+        {items.map((kw, i) => (
+          <div key={i} className="flex items-center gap-4">
+            <span className="text-nt-red font-bold">●</span>
+            <span>{kw}</span>
+            <span className="text-nt-gray/40">[{String(i % keywords.length).padStart(2, '0')}]</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const FeatureCard = ({ icon: Icon, title, desc, num, index }: any) => (
   <motion.div 
-    whileHover={{ y: -4 }}
-    className="p-6 bg-nt-white border border-nt-light-gray rounded-xl flex flex-col justify-between min-h-[220px] transition-all relative group"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-30px" }}
+    transition={{ duration: 0.6, type: "spring", stiffness: 60, delay: index * 0.08 }}
+    whileHover={{ y: -6 }}
+    className="p-6 bg-nt-white border border-nt-light-gray rounded-xl flex flex-col justify-between min-h-[220px] transition-all relative group shadow-sm hover:shadow-md hover:border-nt-gray/30"
   >
     <div>
       {/* Top micro identifier */}
@@ -166,39 +251,45 @@ const Features = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <FeatureCard 
             num="D01"
-            icon={Camera}
+            icon={Globe}
             title={t.feature_1_title}
             desc={t.feature_1_desc}
+            index={0}
           />
           <FeatureCard 
             num="D02"
-            icon={Globe}
+            icon={Server}
             title={t.feature_2_title}
             desc={t.feature_2_desc}
+            index={1}
           />
           <FeatureCard 
             num="D03"
             icon={Smartphone}
             title={t.feature_3_title}
             desc={t.feature_3_desc}
+            index={2}
           />
           <FeatureCard 
             num="D04"
-            icon={Video}
+            icon={Cpu}
             title={t.feature_4_title}
             desc={t.feature_4_desc}
+            index={3}
           />
           <FeatureCard 
             num="D05"
-            icon={Layers}
+            icon={Shield}
             title={t.feature_5_title}
             desc={t.feature_5_desc}
+            index={4}
           />
           <FeatureCard 
             num="D06"
-            icon={Zap}
+            icon={Camera}
             title={t.feature_6_title}
             desc={t.feature_6_desc}
+            index={5}
           />
         </div>
       </div>
@@ -402,16 +493,10 @@ const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword, onProjectSel
 
           <div className="flex gap-4 font-mono text-xs">
             <Link 
-              to="/services/drone-photography" 
-              className="px-4 py-2 bg-nt-charcoal hover:bg-nt-red text-nt-white rounded border border-nt-charcoal transition-colors uppercase tracking-wider text-center"
+              to="/services/droneography" 
+              className="px-5 py-2 bg-nt-charcoal hover:bg-nt-red text-nt-white rounded border border-nt-charcoal transition-colors uppercase tracking-wider text-center"
             >
-              {isNl ? "Drone Fotografie" : isDe ? "Drohnenfotografie" : "Drone Photography"}
-            </Link>
-            <Link 
-              to="/services/drone-videography" 
-              className="px-4 py-2 bg-nt-charcoal hover:bg-nt-red text-nt-white rounded border border-nt-charcoal transition-colors uppercase tracking-wider text-center"
-            >
-              {isNl ? "Drone Videografie" : isDe ? "Drohnenvideografie" : "Drone Videography"}
+              {isNl ? "Bekijk Droneografie" : isDe ? "Drohnenaufnahmen ansehen" : "Explore Droneography"}
             </Link>
           </div>
         </div>
@@ -449,13 +534,15 @@ const DroneFootageHeroSection = ({ searchKeyword, setSearchKeyword, onProjectSel
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredDrones.map((video) => (
+            {filteredDrones.map((video, index) => (
               <motion.div 
                 key={video.id}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -4 }}
-                className="bg-nt-charcoal/40 p-5 border border-nt-charcoal rounded-2xl flex flex-col justify-between group h-full relative"
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.7, type: "spring", stiffness: 55, delay: (index % 3) * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="bg-nt-charcoal/40 p-5 border border-nt-charcoal rounded-2xl flex flex-col justify-between group h-full relative hover:border-nt-gray/50 transition-all"
               >
                 <div>
                   <div 
@@ -622,13 +709,15 @@ const WebPortalsSection = ({ searchKeyword, onProjectSelect }: WebPortalsSection
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredWebProjects.map((video) => (
+            {filteredWebProjects.map((video, index) => (
               <motion.div 
                 key={video.id}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -3 }}
-                className="bg-nt-white p-4 border border-nt-light-gray rounded-xl flex flex-col justify-between group h-full relative"
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.7, type: "spring", stiffness: 55, delay: (index % 3) * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="bg-nt-white p-4 border border-nt-light-gray rounded-xl flex flex-col justify-between group h-full relative hover:shadow-md hover:border-nt-gray/30 transition-all"
               >
                 <div>
                   <div 
@@ -710,14 +799,15 @@ const MainSite = () => {
       <Navbar />
       <main>
         <Hero />
+        <TechMarquee />
         <Features />
+        <WebPortalsSection 
+          searchKeyword={searchKeyword} 
+          onProjectSelect={setSelectedProject} 
+        />
         <DroneFootageHeroSection 
           searchKeyword={searchKeyword} 
           setSearchKeyword={setSearchKeyword} 
-          onProjectSelect={setSelectedProject} 
-        />
-        <WebPortalsSection 
-          searchKeyword={searchKeyword} 
           onProjectSelect={setSelectedProject} 
         />
         

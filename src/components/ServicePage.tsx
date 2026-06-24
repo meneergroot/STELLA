@@ -56,29 +56,17 @@ const serviceData: Record<string, any> = {
     heroImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
     idCode: "DEV_AI_INFRA"
   },
-  'drone-photography': {
-    title: "Drone Photography",
-    subtitle: "Certified Aerial Photography & CTR Exemptions",
-    desc: "Professional high-resolution aerial imaging for real estate, commercial marketing, and industrial installations. Thanks to our unique airspace clearances and operational certificates, we can fly where others cannot—including controlled airspace (CTR) and airport zones. We handle all paperwork.",
+  'droneography': {
+    title: "Droneography",
+    subtitle: "Certified Aerial Cinematography, Photography & CTR Exemptions",
+    desc: "Professional high-resolution aerial imaging and cinematic video capturing for real estate, commercial marketing, and industrial installations. Thanks to our unique airspace clearances and operational certificates, we fly lawfully and safely in controlled airspace (CTR), urban environments, and during night operations. We handle all paperwork and planning.",
     features: [
       { icon: Shield, title: "CTR Airspace Clearance", desc: "Leveraging our advanced certifications, we fly lawfully and safely in controlled airspace (CTR). We manage all permits and communication with air traffic controllers." },
       { icon: Camera, title: "High-Resolution Sensors", desc: "With professional-grade imaging sensors, we capture sharp detail files. Excellent for construction timelines, visual marketing campaigns, or site audits." },
-      { icon: Zap, title: "Rapid Deployments", desc: "We remain on standby for flexible setups. As soon as the ideal clear skies occur, we initiate certified flight procedures." }
+      { icon: Video, title: "Cinematic Night Operations", desc: "One of the few operators certified for flights in twilight and darkness. Produce atmospheric video assets of illuminated skylines, night events, or midnight logistics." }
     ],
     heroImage: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=1200",
-    idCode: "DRN_PHOTO_CTR"
-  },
-  'drone-videography': {
-    title: "Drone Videography",
-    subtitle: "Cinematic Dynamic Motion & Night Operations",
-    desc: "Stunning 4K and 8K cinematic capture sequences for promotional campaigns, documentaries, and assets. Certified for special night flight operations (dark capture) and complex urban layout flight procedures.",
-    features: [
-      { icon: Play, title: "Certified Night Operations", desc: "One of the few operators certified for flights in twilight and darkness. Produce atmospheric video assets of illuminated skylines, night events, or midnight logistics." },
-      { icon: Layers, title: "FPV & Cinema Rigs", desc: "We fly heavy cinematic setups for maximum camera stability alongside customized agile FPV (First Person View) setups for indoor pursuits and high-velocity pacing." },
-      { icon: Cpu, title: "Professional Post-Production", desc: "Assets delivered in high-grade 10-bit log profiles, ready for precise color grading. We also deliver turn-key edits including sound design." }
-    ],
-    heroImage: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&q=80&w=1200",
-    idCode: "DRN_VIDEO_NIGHT"
+    idCode: "DRN_OPERATIONS"
   }
 };
 
@@ -388,7 +376,7 @@ export default function ServicePage() {
       </section>
 
       {/* Service specific portfolio additions */}
-      {slug === 'drone-videography' && (
+      {slug === 'droneography' && (
         <section className="py-20 px-6 bg-nt-bg border-b border-nt-light-gray" id="drone-portfolio-gallery">
           <div className="max-w-7xl mx-auto animate-fade-in">
             {/* Hero 16:9 Section */}
